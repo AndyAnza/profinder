@@ -1,0 +1,34 @@
+{
+  "name": "proFinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndyAnza/profinder.git"
+  },
+  "keywords": [
+    "React",
+    "MongoDB",
+    "Node.js",
+    "Express.js",
+    "JavaScript"
+  ],
+  "author": "Andrea Anza, Diana Solano, Fabrizio Treviño, Jeacqueline Rios",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndyAnza/profinder/issues"
+  },
+  "homepage": "https://github.com/AndyAnza/profinder#readme",
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
