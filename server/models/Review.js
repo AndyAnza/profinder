@@ -18,6 +18,12 @@ const reviewSchema = new Schema({
     minlength: 1,
     maxlength: 280,
   },
+  rating: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 5,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
