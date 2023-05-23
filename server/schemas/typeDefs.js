@@ -2,50 +2,77 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
-    username: String
-    name: String
-    lastname: String
-    email: String
-    phone: String
+    _id: ID!
+    username: String!
+    name: String!
+    lastname: String!
+    email: String!
+    phone: String!
     profilePicture: String
-    location: String
+    location: String!
     createdAt: String
+    profession: Professional
   }
 
   type Professional {
-    _id: ID
-    user: User
-    aboutMe: String
-    yearsOfExperience: String
-    category: String
-    expertise: String
+    _id: ID!
+    user: User!
+    aboutMe: String!
+    yearsOfExperience: String!
+    category: String!
+    expertise: String!
     rating: Int
     url: String
     reviews: [Review]
   }
 
   type Review {
-    _id: ID
+    _id: ID!
+    user: User!
+    comment: String!
+    rating: Float
+    professional: Professional!
+  }
+
+  type Auth {
+    token: ID!
     user: User
-    comment: String
-    rating: Int
-    professional: Professional
   }
 
-  type Query{
-    users: [User]
-    professionals (category: String, location: String, rating: Int): [Professional]
+  type Query {
+    users: [User]!
+    user(userId: ID!): User
+    professionals(
+      category: String
+      location: String
+      rating: Float
+    ): [Professional]
     review: [Review]
-
+    me: User
   }
 
-  
-  type Mutations{
-    addUser (username: String!, name: String!, lastname: String!, email: String!, phone: String!, location: String!, profilePicture: String )
-    addProfessional( user: ID!, aboutMe: String!, yearsOfExperience: Int!, category: String!, expertise: String!, url: String )
-    addReview (user: ID!, comments: String!, professional: ID!)
+  type Mutations {
+    login(email: String!, password: String!): Auth
+    addUser(
+      username: String!
+      name: String!
+      lastname: String!
+      email: String!
+      password: String!
+      phone: String!
+      location: String!
+      profilePicture: String
+    ): Auth
+    addProfessional(
+      user: ID!
+      aboutMe: String!
+      yearsOfExperience: Int!
+      category: String!
+      expertise: String!
+      url: String
+    ): User
+    addReview(user: ID!, comments: String!, professional: ID!): Review
   }
 `;
 
-module.exporst = typeDefs;
+module.exports = typeDefs;
