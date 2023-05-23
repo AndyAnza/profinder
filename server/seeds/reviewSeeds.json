@@ -1,0 +1,37 @@
+[
+    {
+      "_id": "1",
+      "user": "1",
+      "comment": "Excelente trabajo, lo recomendaría sin duda.",
+      "rating": 5,
+      "professional": "1"
+    },
+    {
+      "_id": "2",
+      "user": "4",
+      "comment": "Muy profesional y puntual, quedé satisfecho con el servicio.",
+      "rating": 4,
+      "professional": "3"
+    },
+    {
+      "_id":"3",
+      "user": "5", 
+      "comment": "Excelente trabajo, lo recomiendo totalmente.",
+      "rating": 4,
+      "professional": "1"
+    },
+    {
+        "_id":"4",
+        "user": "3",
+        "comment": "El servicio al cliente fue muy amable y atento.",
+        "rating": 3,
+        "professional": "2"
+    },
+    {
+        "_id":"5",  
+        "user": "3",
+        "comment": "Buena relación calidad-precio, definitivamente le llamaría de nuevo.",
+        "rating": 4,
+        "professional": "1"
+    }       
+]
