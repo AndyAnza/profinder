@@ -4,7 +4,6 @@
 */
 const { Schema, model } = require("mongoose");
 const User = require("./User");
-const Professional = require("./Professional");
 
 const reviewSchema = new Schema({
   user: {

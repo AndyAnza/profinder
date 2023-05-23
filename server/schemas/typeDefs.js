@@ -40,6 +40,7 @@ const typeDefs = gql`
 
   }
 
+  
   type Mutations{
     addUser (username: String!, name: String!, lastname: String!, email: String!, phone: String!, location: String!, profilePicture: String )
     addProfessional( user: ID!, aboutMe: String!, yearsOfExperience: Int!, category: String!, expertise: String!, url: String )
