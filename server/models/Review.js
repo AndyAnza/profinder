@@ -4,7 +4,6 @@
 */
 const { Schema, model } = require("mongoose");
 const User = require("./User");
-const Professional = require("./Professional");
 
 const reviewSchema = new Schema({
   user: {
@@ -17,6 +16,12 @@ const reviewSchema = new Schema({
     required: false,
     minlength: 1,
     maxlength: 280,
+  },
+  rating: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 5,
   },
   createdAt: {
     type: Date,
