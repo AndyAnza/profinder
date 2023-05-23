@@ -12,10 +12,6 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     trim: true,
-    match: [
-      /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-      "Please write a valid email adress",
-    ],
   },
   name: {
     type: String,
@@ -29,10 +25,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    validate: {
-      validator: validator.isEmail,
-      message: "Please write a valid email address",
-    },
+    match: [
+      /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+      "Please write a valid email address",
+    ],
   },
   phone: {
     type: String,
@@ -48,6 +44,16 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  profilePicture: {
+    //*
+    type: String,
+    required: false,
+  },
+  location: {
+    type: String,
+    required: true,
+    enum: ["CDMX", "Monterrey"],
   },
   createdAt: {
     type: Date,

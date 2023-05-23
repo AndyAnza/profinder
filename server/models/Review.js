@@ -3,33 +3,20 @@
 - Fields may include user reference, product reference, rating, review text, etc.
 */
 const { Schema, model } = require("mongoose");
-const userSchema = require("./User");
-const professionalSchema = require("./Professional");
+const User = require("./User");
+const Professional = require("./Professional");
 
 const reviewSchema = new Schema({
   user: {
-    //
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
-  professional: {
-    //
-    type: Schema.Types.ObjectId,
-    ref: "Professional",
-    required: true,
-  },
-  rating: {
-    type: Number,
-    required: true,
-    min: 1,
-    max: 5,
-  },
   comment: {
     type: String,
-    required: true,
-    min_length: 1,
-    max_length: 280,
+    required: false,
+    minlength: 1,
+    maxlength: 280,
   },
   createdAt: {
     type: Date,

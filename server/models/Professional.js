@@ -3,48 +3,73 @@
 - Fields may include title, description, price, quantity, category, images, etc.
 */
 const { Schema, model } = require("mongoose");
-const userSchema = require("./User");
 
-const professionialSchema = new Schema({
-  username: {
-    userSchema,
-    type: String,
-    required: true,
-  },
-  name: {
-    userSchema,
-    type: String,
-    required: true,
-  },
-  lastname: {
-    userSchema,
-    type: String,
-    required: true,
-  },
-  email: {
-    userSchema,
-    type: String,
-    required: true,
-  },
-  location: {
-    //*might move it into the userSchema
-    type: String,
-    required: true,
-    enum: ["CDMX", "Monterrey"],
-  },
-  aboutMe: {
-    type: String,
-    required: true,
-  },
-  yearsOfExperience: {
-    type: Number,
-    required: true,
-    min: 0,
-  },
-  reviews: [
-    {
+const User = require("./User");
+const Review = require("./Review");
+
+const professionalSchema = new Schema(
+  {
+    user: {
       type: Schema.Types.ObjectId,
-      ref: "Review",
+      ref: "User",
+      required: true,
     },
-  ],
+    aboutMe: {
+      type: String,
+      required: true,
+    },
+    yearsOfExperience: {
+      type: Number,
+      required: true,
+      max: 70,
+    },
+    category: {
+      type: String,
+      required: true,
+      enum: ["Enfermería", "Carpintería", "Electricista", "Construcción"],
+    },
+    expertise: {
+      type: String,
+      required: true,
+    },
+    reviews: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ],
+    rating: {
+      type: Number,
+      required: true,
+      min: 1,
+      max: 5,
+    },
+    url: {
+      type: String,
+      required: false,
+      match: [
+        /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
+        "Please write a valid url address",
+      ],
+    },
+    updatedAt: {
+      //*
+      type: Date,
+      default: Date.now,
+    },
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false,
+  }
+);
+
+professionalSchema.virtual("rating").get(function () {
+  return this.rating.length;
 });
+
+const Professional = model("Professional", professionalSchema);
+
+module.exports = Professional;
