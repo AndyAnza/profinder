@@ -49,6 +49,9 @@ const typeDefs = gql`
     ): [Professional]
     review: [Review]
     me: User
+    filterCategory(category: String!): [Professional]
+    filterLocation(location: String!): [Professional]
+    filterRating(rating: Float!): [Professional]
   }
 
   type Mutations {
@@ -72,6 +75,15 @@ const typeDefs = gql`
       url: String
     ): User
     addReview(user: ID!, comments: String!, professional: ID!): Review
+    removeUser(userId: ID!): User
+    updateProfessional(
+      userID: ID!
+      aboutMe: String!
+      yearsOfExperience: Int!
+      category: String!
+      expertise: String!
+      url: String
+    ): Professional
   }
 `;
 
