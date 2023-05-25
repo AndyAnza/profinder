@@ -57,6 +57,18 @@ const resolvers = {
       }
     },
 
+    updateProfessional: async (parent, args) => {
+      const { _id, ...updateFields } = args;
+
+      const professional = await Professional.findOneAndUpdate(
+        { _id },
+        updateFields,
+        { new: true }
+      );
+      console.log(professional);
+      return professional;
+    },
+
     //si sirve
     removeUser: async (parent, { userId }) => {
       return User.findOneAndDelete({ _id: userId });
