@@ -10,6 +10,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    // filtro category y rating si funciona
     professionals: async (parent, args) => {
       const filters = {};
       if (args.rating) {
@@ -34,34 +35,12 @@ const resolvers = {
       const token = signToken(user);
       return { user, token };
     },
-    //addProfessional: async (parent, args) => {
-    //   const professional = await Professional.create(args);
-    //   return professional;
-    // },
-    // Funciona en apollo pero no se guarda en Compass
-    addProfessional: async (parent, args, context) => {
-      const { user, aboutMe, category, yearsOfExperience, expertise, url } =
-        args;
-
-      const professional = await User.findOneAndUpdate(
-        { _id: user }, // Assuming `user` is the ID of the user associated with the professional
-        {
-          $addToSet: {
-            profession: {
-              aboutMe,
-              category,
-              yearsOfExperience,
-              expertise,
-              url,
-            },
-          },
-        },
-        { new: true, runValidators: true }
-      );
-
+    // si sirve
+    addProfessional: async (parent, args) => {
+      const professional = await Professional.create(args);
       return professional;
     },
-
+    // si sirve
     addReview: async (parent, { user, comment, rating, professional }) => {
       try {
         const review = new Review({
@@ -83,14 +62,6 @@ const resolvers = {
       return User.findOneAndDelete({ _id: userId });
     },
 
-    updateProfessional: async (parent, args) => {
-      const professional = await Professional.findOneAndUpdate(
-        { _id: professional._id },
-        { $set: args },
-        { new: true, runValidators: true }
-      );
-      return professional;
-    },
     //si sirve
     login: async (parent, args) => {
       const user = await User.findOne({ email: args.email });
