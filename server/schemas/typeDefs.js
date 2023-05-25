@@ -80,11 +80,11 @@ const typeDefs = gql`
     ): Review
     removeUser(userId: ID!): User
     updateProfessional(
-      professional: ID!
-      aboutMe: String!
-      yearsOfExperience: Int!
-      category: String!
-      expertise: String!
+      user: ID!
+      aboutMe: String
+      yearsOfExperience: Int
+      category: String
+      expertise: String
       url: String
     ): Professional
   }
