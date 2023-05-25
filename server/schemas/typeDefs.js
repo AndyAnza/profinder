@@ -11,7 +11,6 @@ const typeDefs = gql`
     profilePicture: String
     location: String!
     createdAt: String
-    profession: Professional
   }
 
   type Professional {
@@ -31,7 +30,6 @@ const typeDefs = gql`
     user: User!
     comment: String!
     rating: Float
-    professional: Professional!
   }
 
   type Auth {
@@ -40,7 +38,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]!
+    users: [User]
     user(userId: ID!): User
     professionals(
       category: String
@@ -49,9 +47,6 @@ const typeDefs = gql`
     ): [Professional]
     review: [Review]
     me: User
-    filterCategory(category: String!): [Professional]
-    filterLocation(location: String!): [Professional]
-    filterRating(rating: Float!): [Professional]
   }
 
   type Mutations {

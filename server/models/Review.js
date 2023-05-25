@@ -4,16 +4,18 @@
 */
 const { Schema, model } = require("mongoose");
 const User = require("./User");
+const Professional = require("./Professional");
 
 const reviewSchema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
+  user: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: User,
+      required: true,
+    },
+  ],
   comment: {
     type: String,
-    required: false,
     minlength: 1,
     maxlength: 280,
   },
@@ -23,6 +25,13 @@ const reviewSchema = new Schema({
     min: 1,
     max: 5,
   },
+  professional: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: Professional,
+      required: true,
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

@@ -1,59 +1,20 @@
 [
-    {
-      "_id": "1",
-      "user": "1",
-      "aboutMe": "Soy un profesional con amplia experiencia en carpintería fina.",
-      "yearsOfExperience": "10",
-      "category": "Carpintería",
-      "expertise": "Muebles a medida",
-      "rating": 4,
-      "url": "https://example.com/professional-profile",
-      "reviews": ["1", "2"]
-    },
-    {
-      "_id": "2",
-      "user": "2",
-      "aboutMe": "Especialista en electricidad residencial con más de 15 años de experiencia.",
-      "yearsOfExperience": "15",
-      "category": "Electricista",
-      "expertise": "Instalaciones eléctricas residenciales",
-      "rating": 4.5,
-      "url": "https://example.com/professional-profile",
-      "reviews": ["3"]
-    },
-    {
-        "_id": "3",
-        "user": "3",
-        "aboutMe": "Soy una enfermera con experiencia en cuidados intensivos.",
-        "yearsOfExperience": "10",
-        "category": "Enfermería",
-        "expertise": "Cuidados intensivos",
-        "rating": 4.5,
-        "url": "https://www.ejemplo.com/perfil-enfermera",
-        "reviews": ["3","2"]
-      },
-      {
-        "_id": "4",
-        "user": "4",
-        "aboutMe": "Soy un contratista con experiencia en construcción de viviendas.",
-        "yearsOfExperience": "20",
-        "category": "Construcción",
-        "expertise": "Construcción de viviendas",
-        "rating": 4.5,
-        "url": "https://www.ejemplo.com/perfil-contratista",
-        "reviews": ["1","2"]
-      },
-      {
-        "_id": "5",
-        "user": "5",
-        "aboutMe": "Soy un carpintero especializado en muebles a medida.",
-        "yearsOfExperience": "15",
-        "category": "Carpintería",
-        "expertise": "Muebles a medida",
-        "rating": 4.5,
-        "url": "https://www.ejemplo.com/perfil-carpintero",
-        "reviews": ["1","2"]
-      }
-  ]
-
-    
+  {
+    "user": "",
+    "aboutMe": "I am a web developer with expertise in frontend technologies.",
+    "yearsOfExperience": 5,
+    "category": "Enfermería",
+    "expertise": "HTML, CSS, JavaScript",
+    "rating": 5,
+    "url": "https://example.com/professional1"
+  },
+  {
+    "user": "",
+    "aboutMe": "I am a graphic designer specializing in branding and illustrations.",
+    "yearsOfExperience": 8,
+    "category": "Carpintería",
+    "expertise": "Adobe Illustrator, Adobe Photoshop",
+    "rating": 5,
+    "url": "https://example.com/professional2"
+  }
+]

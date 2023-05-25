@@ -3,15 +3,13 @@
 - Fields may include title, description, price, quantity, category, images, etc.
 */
 const { Schema, model } = require("mongoose");
-
 const User = require("./User");
 const Review = require("./Review");
-
 const professionalSchema = new Schema(
   {
     user: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: User,
       required: true,
     },
     aboutMe: {
@@ -35,7 +33,7 @@ const professionalSchema = new Schema(
     reviews: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Review",
+        ref: Review,
       },
     ],
     rating: {
@@ -66,9 +64,9 @@ const professionalSchema = new Schema(
   }
 );
 
-professionalSchema.virtual("rating").get(function () {
-  return this.rating.length;
-});
+// professionalSchema.virtual("rating").get(function () {
+//   return this.rating.length;
+// });
 
 const Professional = model("Professional", professionalSchema);
 

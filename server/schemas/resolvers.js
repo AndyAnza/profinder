@@ -10,26 +10,25 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    filterCategory: async (parent, args) => {
-      const professionals = await Professional.find({
-        category: args.category,
-      });
-      return professionals;
-    },
-    filterLocation: async (parent, args) => {
-      const professionals = await Professional.find({
-        location: args.location,
-      });
-      return professionals;
-    },
-    filterRating: async (parent, args) => {
-      const professionals = await Professional.find({
-        rating: args.rating,
-      });
+    professionals: async (parent, args) => {
+      const filters = {};
+      if (args.rating) {
+        filters.rating = args.rating;
+      }
+      if (args.category) {
+        filters.category = args.category;
+      }
+      if (args.location) {
+        filters.location = args.location;
+      }
+      const professionals = await Professional.find(filters)
+        .populate("user")
+        .populate("reviews");
+      console.log(professionals);
       return professionals;
     },
   },
-  Mutation: {
+  Mutations: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
