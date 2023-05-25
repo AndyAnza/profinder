@@ -1,4 +1,5 @@
 const User = require("./User");
-const Profession = require("./Professional");
+const Professional = require("./Professional");
+const Review = require("./Review");
 
-module.exports = { User, Professional };
+module.exports = { User, Professional, Review };

@@ -1,58 +1,24 @@
 [
   {
-    "_id": "1",
-    "username": "ale.mora",
-    "name": "Alejandro",
-    "lastname": "Morales",
-    "email": "ale.mora@example.com",
-    "phone": "123456789",
-    "profilePicture": "https://example.com/profiles/ale.mora.jpg",
+    "username": "john_doe",
+    "name": "John",
+    "lastname": "Doe",
+    "email": "john@example.com",
+    "phone": "1234567890",
+    "password": "secret123",
+    "profilePicture": "profile1.jpg",
+    "location": "CDMX",
+    "createdAt": "2023-05-23T10:00:00.000Z"
+  },
+  {
+    "username": "jane_smith",
+    "name": "Jane",
+    "lastname": "Smith",
+    "email": "jane@example.com",
+    "phone": "9876543210",
+    "password": "secret123",
+    "profilePicture": "profile2.jpg",
     "location": "Monterrey",
-    "createdAt": "2023-04-27T10:30:00.000Z"
-  },
-  {
-    "_id": "2",
-    "username": "sofiii",
-    "name": "Sofía",
-    "lastname": "García",
-    "email": "sof.gar@example.com",
-    "phone": "487154329",
-    "profilePicture": "https://example.com/profiles/sof.gar.jpg",
-    "location": "CDMX",
-    "createdAt": "2023-04-26T15:45:00.000Z"
-  },
-  {
-    "_id": "3",
-    "username": "carlop",
-    "name": "Carlos",
-    "lastname": "López",
-    "email": "carlop@example.com",
-    "phone": "987654921",
-    "profilePicture": "https://example.com/profiles/car.lo.jpg",
-    "location": "CDMX",
-    "createdAt": "2023-04-26T15:45:00.000Z"
-  },
-  {
-    "_id": "4",
-    "username": "vale",
-    "name": "Valentina",
-    "lastname": "Hernández",
-    "email": "vaaal@example.com",
-    "phone": "9999999999",
-    "profilePicture": "https://example.com/profiles/bob.jones.jpg",
-    "location": "Monterrey",
-    "createdAt": "2023-04-26T15:45:00.000Z"
-  },
-  {
-    "_id": "5",
-    "username": "Miguel",
-    "name": "Miguel",
-    "lastname": "Torres",
-    "email": "miguel.her@example.com",
-    "phone": "9931299999",
-    "profilePicture": "https://example.com/profiles/migue.to.jpg",
-    "location": "CDMX",
-    "createdAt": "2023-04-26T15:45:00.000Z"
+    "createdAt": "2023-05-23T11:00:00.000Z"
   }
 ]
-
