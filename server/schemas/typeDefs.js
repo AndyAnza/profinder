@@ -17,7 +17,7 @@ const typeDefs = gql`
     _id: ID!
     user: User!
     aboutMe: String!
-    yearsOfExperience: String!
+    yearsOfExperience: Int!
     category: String!
     expertise: String!
     rating: Int
@@ -28,8 +28,9 @@ const typeDefs = gql`
   type Review {
     _id: ID!
     user: User!
-    comment: String!
-    rating: Float
+    comment: String
+    rating: Int
+    professional: Professional!
   }
 
   type Auth {
@@ -64,15 +65,20 @@ const typeDefs = gql`
     addProfessional(
       user: ID!
       aboutMe: String!
-      yearsOfExperience: Int!
       category: String!
+      yearsOfExperience: Int!
       expertise: String!
       url: String
     ): User
-    addReview(user: ID!, comments: String!, professional: ID!): Review
+    addReview(
+      user: ID!
+      comments: String
+      rating: Int
+      professional: ID!
+    ): Review
     removeUser(userId: ID!): User
     updateProfessional(
-      userID: ID!
+      professional: ID!
       aboutMe: String!
       yearsOfExperience: Int!
       category: String!
