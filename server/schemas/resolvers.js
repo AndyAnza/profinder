@@ -40,7 +40,6 @@ const resolvers = {
     // },
     // Funciona en apollo pero no se guarda en Compass
     addProfessional: async (parent, args, context) => {
-
       const { user, aboutMe, category, yearsOfExperience, expertise, url } =
         args;
 
@@ -63,96 +62,22 @@ const resolvers = {
       return professional;
     },
 
+    addReview: async (parent, { user, comment, rating, professional }) => {
+      try {
+        const review = new Review({
+          user,
+          comment,
+          rating,
+          professional,
+        });
+        const savedReview = await review.save();
 
-    //addReview hecho por Diana
-    //*
-    // addReview: async (parent, args, context) => {
-    //   const user = await User.findOne({ _id: context.user._id });
-    //   if (!user) {
-    //     throw new Error("User not found");
-    //   }
-    //   const professional = await Professional.findById(args.professional);
-    //   if (!professional) {
-    //     throw new Error("Professional not found");
-    //   }
-    //   const review = new Review({
-    //     user: user._id,
-    //     comment: args.comments,
-    //     rating: args.rating,
-    //     professional: professional._id,
-    //   });
-    //   await review.save();
-    //   professional.reviews.push(review._id);
-    //   await professional.save();
-    //   return review;
-    // },
-
-    // addReview: async (parent, args, context) => {
-    //   const user = await User.findOne({ _id: context.user._id });
-    //   if (!user) {
-    //     throw new Error("User not found");
-    //   }
-
-    //   const professional = await Professional.findById(args.professional);
-    //   if (!professional) {
-    //     throw new Error("Professional not found");
-    //   }
-
-    //   const review = new Review({
-    //     user: user._id,
-    //     comment: args.comments,
-    //     rating: args.rating,
-    //     professional: professional._id,
-    //   });
-
-    //   await review.save();
-    //   professional.reviews.push(review._id);
-    //   await professional.save();
-
-    //   return review;
-    // },
-
-
-    addReview: async (parent, args, context) => {
-      const { user } = await User.findOne({ _id: context.user._id });
-      if (!user) {
-        throw new Error("User not found");
+        return savedReview;
+      } catch (error) {
+        throw new Error("Failed to add review");
       }
-
-      const professional = await Professional.findById(args.professional);
-      if (!professional) {
-        throw new Error("Professional not found");
-      }
-
-      const review = await Review.create({
-        user: user._id,
-        comment: args.comments,
-        rating: args.rating,
-        professional: professional._id,
-      });
-
-      await review.save();
-
-
-      professional.reviews.push(review._id);
-      await professional.save();
-
-      return review;
     },
 
-
-      // Populate the necessary fields in the review object
-      await review.populate("user").execPopulate();
-
-      return {
-        _id: review._id,
-        user: {
-          name: review.user.name,
-        },
-        comment: review.comment,
-        rating: review.rating,
-      };
-    },
     //si sirve
     removeUser: async (parent, { userId }) => {
       return User.findOneAndDelete({ _id: userId });

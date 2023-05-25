@@ -31,6 +31,7 @@ const typeDefs = gql`
     comment: String
     rating: Int
     professional: Professional!
+    createdAt: String
   }
 
   type Auth {
@@ -44,7 +45,7 @@ const typeDefs = gql`
     professionals(
       category: String
       location: String
-      rating: Float
+      rating: Int
     ): [Professional]
     review: [Review]
     me: User
@@ -72,9 +73,10 @@ const typeDefs = gql`
     ): User
     addReview(
       user: ID!
-      comments: String
+      comment: String
       rating: Int
       professional: ID!
+      createdAt: String
     ): Review
     removeUser(userId: ID!): User
     updateProfessional(

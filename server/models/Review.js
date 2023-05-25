@@ -28,7 +28,6 @@ const reviewSchema = new Schema({
     ref: "Professional",
     required: true,
   },
-
   createdAt: {
     type: Date,
     default: Date.now,
