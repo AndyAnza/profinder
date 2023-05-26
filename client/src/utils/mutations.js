@@ -37,6 +37,28 @@ export const ADD_USER = gql`
   }
 `;
 
+export const ADD_PROFESSIONAL = gql`
+  mutation addProfessional(
+    $user: ID!
+    $aboutMe: String!
+    $category: String!
+    $yearsOfExperience: Int!
+    $expertise: String!
+    $url: String
+  ) {
+    addProfessional(
+      user: $user
+      aboutMe: $aboutMe
+      category: $category
+      yearsOfExperience: $yearsOfExperience
+      expertise: $expertise
+      url: $url
+    ) {
+      _id
+    }
+  }
+`;
+
 export const ADD_REVIEW = gql`
   mutation addReview(
     $user: ID!
@@ -64,6 +86,14 @@ export const ADD_REVIEW = gql`
   }
 `;
 
+export const REMOVE_USER = gql`
+  mutation removeUser {
+    removeUser {
+      _id
+    }
+  }
+`;
+
 export const UPDATE_PROFESSIONAL = gql`
   mutation updateProfessional(
     $id: ID!
@@ -82,6 +112,17 @@ export const UPDATE_PROFESSIONAL = gql`
       url: $url
     ) {
       _id
+    }
+  }
+`;
+
+export const LOGIN_USER = gql`
+  mutation login($password: String!, $email: String!) {
+    login(password: $password, email: $email) {
+      token
+      user {
+        username
+      }
     }
   }
 `;
