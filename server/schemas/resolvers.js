@@ -13,6 +13,7 @@ const resolvers = {
     // filtro category y rating si funciona
     professionals: async (parent, args) => {
       const filters = {};
+      const userFilters = {};
       if (args.rating) {
         filters.rating = args.rating;
       }
@@ -20,8 +21,16 @@ const resolvers = {
         filters.category = args.category;
       }
       if (args.location) {
-        filters.location = args.location;
+        userFilters.location = args.location;
       }
+      // Find users based on location
+      const usersWithLocation = await User.find(userFilters);
+      const userIdsWithLocation = usersWithLocation.map((user) => user._id);
+      // Add user IDs to filters
+      if (args.location) {
+        filters.user = { $in: userIdsWithLocation };
+      }
+
       const professionals = await Professional.find(filters)
         .populate("user")
         .populate("reviews");
@@ -36,42 +45,60 @@ const resolvers = {
       return { user, token };
     },
     // si sirve
-    addProfessional: async (parent, args) => {
-      const professional = await Professional.create(args);
-      return professional;
+    addProfessional: async (parent, args, context) => {
+      if (context.user) {
+        const professional = await Professional.create(args);
+        return professional;
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
     // si sirve
-    addReview: async (parent, { user, comment, rating, professional }) => {
-      try {
-        const review = new Review({
-          user,
-          comment,
-          rating,
-          professional,
-        });
-        const savedReview = await review.save();
+    addReview: async (
+      parent,
+      { user, comment, rating, professional },
+      context
+    ) => {
+      if (context.user) {
+        try {
+          const review = new Review({
+            user,
+            comment,
+            rating,
+            professional,
+          });
+          const savedReview = await review.save();
 
-        return savedReview;
-      } catch (error) {
-        throw new Error("Failed to add review");
+          return savedReview;
+        } catch (error) {
+          throw new Error("Failed to add review");
+        }
+      } else {
+        throw new AuthenticationError("You need to be logged in!");
       }
     },
-
-    updateProfessional: async (parent, args) => {
+    // si sirve
+    updateProfessional: async (parent, args, context) => {
       const { _id, ...updateFields } = args;
-
-      const professional = await Professional.findOneAndUpdate(
-        { _id },
-        updateFields,
-        { new: true }
-      );
-      console.log(professional);
-      return professional;
+      if (context.user) {
+        const professional = await Professional.findOneAndUpdate(
+          { user: context.user._id },
+          updateFields,
+          { new: true }
+        );
+        console.log(professional);
+        return professional;
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
 
     //si sirve
-    removeUser: async (parent, { userId }) => {
-      return User.findOneAndDelete({ _id: userId });
+    removeUser: async (parent, { userId }, context) => {
+      console.log(context);
+      if (context.user) {
+        await Professional.findOneAndDelete({ user: context.user._id });
+        return User.findOneAndDelete({ _id: context.user._id });
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
 
     //si sirve
