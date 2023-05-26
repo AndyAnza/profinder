@@ -63,3 +63,25 @@ export const ADD_REVIEW = gql`
     }
   }
 `;
+
+export const UPDATE_PROFESSIONAL = gql`
+  mutation updateProfessional(
+    $id: ID!
+    $aboutMe: String
+    $yearsOfExperience: Int
+    $category: String
+    $expertise: String
+    $url: String
+  ) {
+    updateProfessional(
+      _id: $id
+      aboutMe: $aboutMe
+      yearsOfExperience: $yearsOfExperience
+      category: $category
+      expertise: $expertise
+      url: $url
+    ) {
+      _id
+    }
+  }
+`;
