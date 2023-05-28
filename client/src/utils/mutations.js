@@ -44,6 +44,7 @@ export const ADD_PROFESSIONAL = gql`
     $category: String!
     $yearsOfExperience: Int!
     $expertise: String!
+    $income: String
     $url: String
   ) {
     addProfessional(
@@ -52,6 +53,7 @@ export const ADD_PROFESSIONAL = gql`
       category: $category
       yearsOfExperience: $yearsOfExperience
       expertise: $expertise
+      income: $income
       url: $url
     ) {
       _id
@@ -101,6 +103,7 @@ export const UPDATE_PROFESSIONAL = gql`
     $yearsOfExperience: Int
     $category: String
     $expertise: String
+    $income: String
     $url: String
   ) {
     updateProfessional(
@@ -109,6 +112,7 @@ export const UPDATE_PROFESSIONAL = gql`
       yearsOfExperience: $yearsOfExperience
       category: $category
       expertise: $expertise
+      income: $income
       url: $url
     ) {
       _id

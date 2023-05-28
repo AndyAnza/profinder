@@ -1,28 +1,33 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: '¿Quiénes somos?', href: '#' }, 
-  { name: 'Clientes Satisfechos', href: '#' },
-  { name: 'Servicio al clinte', href: '#' },
-  { name: 'Blog', href: '#' }, <br><br></br></br> 
-  
-]
+  { name: "¿Quiénes somos?", href: "#" },
+  { name: "Clientes Satisfechos", href: "#" },
+  { name: "Servicio al clinte", href: "#" },
+  { name: "Blog", href: "#" },
+  <br>
+    <br></br>
+  </br>,
+];
 
 export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="bg-white">
       <header className="absolute inset-x-0 top-0 z-50">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <nav
+          className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+          aria-label="Global"
+        >
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Tu Compañía</span>
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                className="h-48 w-auto"
+                src="../public/proFinder_Logo.png"
                 alt=""
               />
             </a>
@@ -39,34 +44,37 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
                 {item.name}
               </a>
             ))}
           </div>
           <div className="hidden lg:flex lg:justify-start space-x-4">
-  <a
-    href="#"
-    className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-  >
-    Iniciar Sesion
-  </a>
-  <a
-    href="#"
-    className="rounded-md bg-white-600 px-2 py-1.5 text-xs font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-    >
-  
-    Registrarse
-  </a>
-</div>
-
-
-
-
+            <a
+              href="#"
+              className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Iniciar Sesion
+            </a>
+            <a
+              href="#"
+              className="rounded-md bg-white-600 px-2 py-1.5 text-xs font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Registrarse
+            </a>
+          </div>
         </nav>
-        
-        <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-          
+
+        <Dialog
+          as="div"
+          className="lg:hidden"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        >
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
@@ -87,9 +95,11 @@ export default function Example() {
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="mt
+            <div
+              className="mt
 
--6 flow-root">
+-6 flow-root"
+            >
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
@@ -102,7 +112,7 @@ export default function Example() {
                     </a>
                   ))}
                 </div>
-                
+
                 <div className="py-6">
                   <a
                     href="#"
@@ -140,7 +150,12 @@ export default function Example() {
                 strokeWidth={0}
               />
             </svg>
-            <rect width="100%" height="100%" strokeWidth={0} fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
+            <rect
+              width="100%"
+              height="100%"
+              strokeWidth={0}
+              fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
+            />
           </svg>
           <div
             className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
@@ -150,13 +165,11 @@ export default function Example() {
               className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
               style={{
                 clipPath:
-                  'polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)',
-
-
+                  "polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)",
               }}
             />
           </div>
-          
+
           <div className="overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
@@ -165,9 +178,11 @@ export default function Example() {
                     Estamos cambiando la forma en que las personas se conectan.
                   </h1>
                   <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                    Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in quis cupidatat mollit aute velit. Et
-                    labore commodo nulla aliqua proident mollit ullamco exercitation tempor. Sint aliqua anim nulla sunt
-                    mollit id pariatur in voluptate cillum.
+                    Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in
+                    quis cupidatat mollit aute velit. Et labore commodo nulla
+                    aliqua proident mollit ullamco exercitation tempor. Sint
+                    aliqua anim nulla sunt mollit id pariatur in voluptate
+                    cillum.
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
                     <a
@@ -176,7 +191,10 @@ export default function Example() {
                     >
                       Busqueda Pro
                     </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    <a
+                      href="#"
+                      className="text-sm font-semibold leading-6 text-gray-900"
+                    >
                       Unirme a la comunidad <span aria-hidden="true">→</span>
                     </a>
                   </div>
@@ -237,5 +255,5 @@ export default function Example() {
         </div>
       </main>
     </div>
-  )
+  );
 }

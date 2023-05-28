@@ -12,6 +12,7 @@ export const QUERY_PROFESSIONALS = gql`
       yearsOfExperience
       category
       expertise
+      income
       rating
       url
     }

@@ -5,6 +5,7 @@
     "yearsOfExperience": 5,
     "category": "Enfermería",
     "expertise": "HTML, CSS, JavaScript",
+    "income": "$700 por 7 horas horario matutino. $900 por 7 horas horario nocturno.",
     "rating": 5,
     "url": "https://example.com/professional1"
   },
@@ -14,6 +15,7 @@
     "yearsOfExperience": 8,
     "category": "Carpintería",
     "expertise": "Adobe Illustrator, Adobe Photoshop",
+    "income": "Cotizar por pieza.",
     "rating": 5,
     "url": "https://example.com/professional2"
   }
