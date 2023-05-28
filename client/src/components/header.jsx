@@ -5,7 +5,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 const navigation = [
   { name: "¿Quiénes somos?", href: "#" },
   { name: "Clientes Satisfechos", href: "#" },
-  { name: "Servicio al clinte", href: "#" },
+  { name: "Servicio al cliente", href: "#" },
   { name: "Blog", href: "#" },
   <br>
     <br></br>
@@ -22,9 +22,13 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Tu Compañía</span>
-            <img className="h-28 w-auto" src="/proFinder_Logo.png" alt="" />
+          <a href="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">ProFinder Logo</span>
+            <img
+              className="h-28 w-auto"
+              src="/proFinder_Logo.png"
+              alt="ProFinder-Logo"
+            />
           </a>
         </div>
         <div className="flex lg:hidden">

@@ -1,4 +1,5 @@
 import LandingBannner from "../components/landingBanner";
+import SearchDropdown from "../components/searchDropdown";
 import JobCategory from "../components/jobCategory";
 import Stats from "../components/stats.jsx";
 import Review from "../components/review.jsx";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main>
       <LandingBannner />
+      <SearchDropdown />
       <JobCategory />
       <Stats />
       <Review />
