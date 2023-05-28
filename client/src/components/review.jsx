@@ -14,11 +14,10 @@ export default function Review() {
         </div>
         <blockquote className="mt-10 text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl sm:leading-9">
           <p>
-            “Qui dolor enim consectetur do et non ex amet culpa sint in ea non
-            dolore. Enim minim magna anim id minim eu cillum sunt dolore
-            aliquip. Amet elit laborum culpa irure incididunt adipisicing culpa
-            amet officia exercitation. Eu non aute velit id velit Lorem elit
-            anim pariatur.”
+            “Esta aplicación es increíblemente útil. En varias ocasiones, he
+            encontrado profesionales altamente capacitados y eficientes para
+            realizar diferentes trabajos en mi hogar. La interfaz es fácil de
+            usar y la variedad de opciones es impresionante.”
           </p>
         </blockquote>
         <figcaption className="mt-10 flex items-center gap-x-6">
@@ -28,7 +27,7 @@ export default function Review() {
             alt=""
           />
           <div className="text-sm leading-6">
-            <div className="font-semibold text-gray-900">Judith Black</div>
+            <div className="font-semibold text-gray-900">Julia Negrete</div>
             <div className="mt-0.5 text-gray-600">CEO of Workcation</div>
           </div>
         </figcaption>

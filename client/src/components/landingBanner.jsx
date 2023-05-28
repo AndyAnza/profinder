@@ -46,24 +46,24 @@ export default function landingBannner() {
       </div>
 
       <div className="overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
+        <div className="mx-auto max-w-7xl px-6 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Estamos cambiando la forma en que las personas se conectan.
+                ProFinder: La manera más confiable de encontrar expertos en
+                problemas de tu día a día.
               </h1>
               <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in quis
-                cupidatat mollit aute velit. Et labore commodo nulla aliqua
-                proident mollit ullamco exercitation tempor. Sint aliqua anim
-                nulla sunt mollit id pariatur in voluptate cillum.
+                
+                Buscas un carpintero, electricista, plomero o alguien de confianza que te ayude en esos problemas cotidianos? Encuentralo aquí! <br></br>
+                Nuestra aplicación te brinda una lista de profesionistas de confianza. Lo que te permite tomar una información informada que se ajusta a tu medida. 
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <a
-                  href="/create-professional"
+                  href=""
                   className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Busqueda Pro
+                  ¡Encuéntralo ahora!
                 </a>
                 <a
                   href="#"
