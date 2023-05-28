@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import { Combobox } from "@headlessui/react";
+import { Combobox, Menu } from "@headlessui/react";
+
+const cities = ["CDMX", "Monterrey"];
 
 const people = [
   {
@@ -66,8 +68,6 @@ const people = [
   // Otras personas...
 ];
 
-const cities = ["CDMX", "Monterrey", "Guadalajara", "Mérida"];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -89,28 +89,29 @@ export default function jobCategory() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Encontrar Pro
+            Encuentra a tu experto.
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Descubre soluciones rápidas y eficientes con expertos altamente
-            calificados en nuestra plataforma. ¡Inicia tu búsqueda ahora y
-            transforma tu situación!
+            Solo selecciona tu ubicación y la categoría que se acople mejor a
+            tus necesidades, y en cuestión de segundos encontrarás a un experto
+            que solucione tu problema.
           </p>
         </div>
-        <div className="relative mt-8">
+        <div className=" mt-8 flex flex-col-1 lg:flex-col-2 gap-8 justify-center bg-indigo-600 round-full rounded-md border-0 p-12">
           <Combobox
             as="div"
             value={selectedPerson}
             onChange={setSelectedPerson}
           >
-            <Combobox.Label className="block text-sm font-medium leading-6 text-gray-900">
-              Assigned to
+            <Combobox.Label className="block text-xl font-medium leading-6 text-white">
+              Elige tú categoría:
             </Combobox.Label>
             <div className="relative mt-2">
               <Combobox.Input
                 className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 onChange={(event) => setQuery(event.target.value)}
                 displayValue={(person) => person?.name}
+                placeholder="ej. Carpintería"
               />
               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
                 <ChevronUpDownIcon
@@ -128,7 +129,7 @@ export default function jobCategory() {
                       className={({ active }) =>
                         classNames(
                           "relative cursor-default select-none py-2 pl-3 pr-9",
-                          active ? "bg-indigo-600 text-white" : "text-gray-900"
+                          active ? "bg-gray-400 text-white" : "text-gray-900"
                         )
                       }
                     >
@@ -146,7 +147,7 @@ export default function jobCategory() {
                             <span
                               className={classNames(
                                 "ml-2 truncate text-gray-500",
-                                active ? "text-indigo-200" : "text-gray-500"
+                                active ? "text-indigo-600" : "text-gray-500"
                               )}
                             >
                               {person.username}
@@ -176,14 +177,15 @@ export default function jobCategory() {
           </Combobox>
 
           <Combobox as="div" value={selectedCity} onChange={setSelectedCity}>
-            <Combobox.Label className="block text-sm font-medium leading-6 text-gray-900">
-              Cities
+            <Combobox.Label className="block text-xl font-medium leading-6 text-white">
+              Elige tú ubicación:
             </Combobox.Label>
             <div className="relative mt-2">
               <Combobox.Input
-                className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-300 sm:text-sm sm:leading-6"
                 onChange={(event) => setQuery(event.target.value)}
                 displayValue={(city) => city}
+                placeholder="ej. CDMX"
               />
               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
                 <ChevronUpDownIcon
@@ -201,7 +203,7 @@ export default function jobCategory() {
                       className={({ active }) =>
                         classNames(
                           "relative cursor-default select-none py-2 pl-3 pr-9",
-                          active ? "bg-indigo-600 text-white" : "text-gray-900"
+                          active ? "bg-gray-400 text-white" : "text-gray-900"
                         )
                       }
                     >

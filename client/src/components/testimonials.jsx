@@ -24,7 +24,7 @@ const testimonials = [
     ],
     [
       {
-        body: "El servicio de envío de personal a domicilio es una gran ventaja. Ahorra tiempo y esfuerzo. Contraté a un electricista para solucionar un problema en mi hogar y todo salió perfecto. ¡Los felicito por esta innovación!",
+        body: "Contraté a un electricista para solucionar un problema en mi hogar y todo salió perfecto. ¡Los felicito por esta innovación!",
         author: {
           name: "Victoria Gonzalez",
           handle: "Mérida, Yucatán",
@@ -50,7 +50,7 @@ const testimonials = [
     ],
     [
       {
-        body: '"Contraté a un chef privado para una ocasión especial y superaron todas mis expectativas. La comida fue exquisita y el servicio impecable. ¡Gracias por hacer de mi evento algo memorable.',
+        body: "ProFinder es genial. Encontré al carpintero perfecto para mi proyecto de remodelación en cuestión de minutos. ¡Resultados confiables y eficientes!",
         author: {
           name: "Alejandro Torres",
           handle: "Guadalajara, Jalisco",
