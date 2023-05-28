@@ -19,8 +19,7 @@ export default function Ejemplo() {
 return (
   <form>
     <div className="space-y-12">
-      <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
-        <div>
+    <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3 ml-4">        <div>
           <h2 className="text-base font-semibold leading-7 text-gray-900">Perfil</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
             Esta información se mostrará públicamente, así que ten cuidado con lo que compartes.
@@ -101,7 +100,7 @@ return (
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3 ml-4">
         <div>
           <h2 className="text-base font-semibold leading-7 text-gray-900">Información personal</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">Utiliza una dirección permanente donde puedas recibir correo.</p>
@@ -233,7 +232,8 @@ return (
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3 ml-4">
+
         <div>
           <h2 className="text-base font-semibold leading-7 text-gray-900">Notificaciones</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
