@@ -30,5 +30,8 @@
   "homepage": "https://github.com/AndyAnza/profinder#readme",
   "devDependencies": {
     "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "jwt-decode": "^3.1.2"
   }
 }
