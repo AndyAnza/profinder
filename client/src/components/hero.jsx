@@ -27,7 +27,7 @@ export default function Example() {
               <span className="sr-only">Tu Compañía</span>
               <img
                 className="h-48 w-auto"
-                src="../public/proFinder_Logo.png"
+                src="/proFinder_Logo.png"
                 alt=""
               />
             </a>
