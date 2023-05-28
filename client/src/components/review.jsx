@@ -1,6 +1,6 @@
-import { StarIcon } from '@heroicons/react/20/solid'
+import { StarIcon } from "@heroicons/react/20/solid";
 
-export default function Example() {
+export default function Review() {
   return (
     <section className="bg-white px-6 py-24 sm:py-32 lg:px-8">
       <figure className="mx-auto max-w-2xl">
@@ -14,9 +14,11 @@ export default function Example() {
         </div>
         <blockquote className="mt-10 text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl sm:leading-9">
           <p>
-            “Qui dolor enim consectetur do et non ex amet culpa sint in ea non dolore. Enim minim magna anim id minim eu
-            cillum sunt dolore aliquip. Amet elit laborum culpa irure incididunt adipisicing culpa amet officia
-            exercitation. Eu non aute velit id velit Lorem elit anim pariatur.”
+            “Qui dolor enim consectetur do et non ex amet culpa sint in ea non
+            dolore. Enim minim magna anim id minim eu cillum sunt dolore
+            aliquip. Amet elit laborum culpa irure incididunt adipisicing culpa
+            amet officia exercitation. Eu non aute velit id velit Lorem elit
+            anim pariatur.”
           </p>
         </blockquote>
         <figcaption className="mt-10 flex items-center gap-x-6">
@@ -32,5 +34,5 @@ export default function Example() {
         </figcaption>
       </figure>
     </section>
-  )
+  );
 }

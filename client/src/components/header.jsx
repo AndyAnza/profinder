@@ -50,13 +50,13 @@ export default function Header() {
         </div>
         <div className="hidden lg:flex lg:justify-start space-x-4">
           <a
-            href="#"
+            href="/login"
             className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Iniciar Sesion
           </a>
           <a
-            href="#"
+            href="/sign-in"
             className="rounded-md bg-white-600 px-2 py-1.5 text-xs font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Registrarse
@@ -110,7 +110,7 @@ export default function Header() {
 
               <div className="py-6">
                 <a
-                  href="#"
+                  href="/login"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Iniciar sesión
