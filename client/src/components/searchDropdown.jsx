@@ -4,68 +4,43 @@ import { Combobox } from "@headlessui/react";
 
 const cities = ["CDMX", "Monterrey"];
 
-const people = [
+const category = [
   {
     name: "Carpintería",
-    imageUrl:
-      "https://images.unsplash.com/photo-1626081062126-d3b192c1fcb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=876&q=80",
   },
   {
     name: "Catering",
-    imageUrl:
-      "https://images.unsplash.com/photo-1623475173140-ad2f0369ca92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1024&q=80",
   },
   {
     name: "Contabilidad",
-    imageUrl:
-      "https://images.unsplash.com/photo-1563212034-a3c52118cce2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
   },
   {
-    name: "Diseño Gráfico",
-    imageUrl:
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
+    name: "Construcción",
   },
   {
     name: "Electricista",
-    imageUrl:
-      "https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
   },
   {
-    name: "Florista",
-    imageUrl:
-      "https://images.unsplash.com/photo-1527609635833-38e4a5f7c941?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    name: "Enfermería",
   },
   {
     name: "Fotografía",
-    imageUrl:
-      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
   },
   {
     name: "Jardinería",
-    imageUrl:
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
   },
   {
     name: "Limpieza",
-    imageUrl:
-      "https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
   },
   {
     name: "Pintura",
-    imageUrl:
-      "https://images.unsplash.com/photo-1621685682093-3b8016dcb57d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=873&q=80",
   },
   {
     name: "Plomería",
-    imageUrl:
-      "https://images.unsplash.com/photo-1543674892-7d64d45df18b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=730&q=80",
   },
   {
     name: "Programación",
-    imageUrl:
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
   },
-  // Otras personas...
 ];
 
 function classNames(...classes) {
@@ -74,14 +49,14 @@ function classNames(...classes) {
 
 export default function searchDropdown() {
   const [query, setQuery] = useState("");
-  const [selectedPerson, setSelectedPerson] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
 
-  const filteredPeople =
+  const filteredCategory =
     query === ""
-      ? people
-      : people.filter((person) => {
-          return person.name.toLowerCase().includes(query.toLowerCase());
+      ? category
+      : category.filter((category) => {
+          return category.name.toLowerCase().includes(query.toLowerCase());
         });
 
   return (
@@ -100,8 +75,8 @@ export default function searchDropdown() {
         <div className=" mt-8 flex flex-col-2 gap-8 justify-center bg-indigo-600 round-full rounded-md border-0 p-12">
           <Combobox
             as="div"
-            value={selectedPerson}
-            onChange={setSelectedPerson}
+            value={selectedCategory}
+            onChange={setSelectedCategory}
             className="col"
           >
             <Combobox.Label className="block text-xl font-medium leading-6 text-white">
@@ -111,7 +86,7 @@ export default function searchDropdown() {
               <Combobox.Input
                 className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 onChange={(event) => setQuery(event.target.value)}
-                displayValue={(person) => person?.name}
+                displayValue={(category) => category?.name}
                 placeholder="ej. Carpintería"
               />
               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
@@ -121,12 +96,12 @@ export default function searchDropdown() {
                 />
               </Combobox.Button>
 
-              {filteredPeople.length > 0 && (
+              {filteredCategory.length > 0 && (
                 <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                  {filteredPeople.map((person) => (
+                  {filteredCategory.map((category) => (
                     <Combobox.Option
-                      key={person.username}
-                      value={person}
+                      key={category.username}
+                      value={category}
                       className={({ active }) =>
                         classNames(
                           "relative cursor-default select-none py-2 pl-3 pr-9",
@@ -143,7 +118,7 @@ export default function searchDropdown() {
                                 selected && "font-semibold"
                               )}
                             >
-                              {person.name}
+                              {category.name}
                             </span>
                             <span
                               className={classNames(
@@ -151,7 +126,7 @@ export default function searchDropdown() {
                                 active ? "text-indigo-600" : "text-gray-500"
                               )}
                             >
-                              {person.username}
+                              {category.username}
                             </span>
                           </div>
 
@@ -244,6 +219,12 @@ export default function searchDropdown() {
               )}
             </div>
           </Combobox>
+          <button
+            type="click"
+            className="flex-none rounded-md bg-indigo-500 px-6 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+          >
+            Buscar
+          </button>
         </div>
       </div>
     </div>

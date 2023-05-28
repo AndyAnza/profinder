@@ -54,13 +54,16 @@ export default function landingBannner() {
                 problemas de tu día a día.
               </h1>
               <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                
-                Buscas un carpintero, electricista, plomero o alguien de confianza que te ayude en esos problemas cotidianos? Encuentralo aquí! <br></br>
-                Nuestra aplicación te brinda una lista de profesionistas de confianza. Lo que te permite tomar una información informada que se ajusta a tu medida. 
+                Buscas un carpintero, electricista, plomero o alguien de
+                confianza que te ayude en esos problemas cotidianos? Encuentralo
+                aquí! <br></br>
+                Nuestra aplicación te brinda una lista de profesionistas de
+                confianza. Lo que te permite tomar una información informada que
+                se ajusta a tu medida.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <a
-                  href=""
+                  href="/results"
                   className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   ¡Encuéntralo ahora!
