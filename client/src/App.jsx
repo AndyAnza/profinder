@@ -1,21 +1,18 @@
+import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "tailwindcss/tailwind.css";
 
 // Components and Pages
-import Header from "./components/header";
+import Header from "./components/header.jsx";
 import Home from "./pages/Home";
 import Login from "./pages/login.jsx";
 import CustomerUser from "./pages/customerUser.jsx";
 import ProUser from "./pages/proUser.jsx";
-import Review from "./pages/review.jsx";
 import ProSearch from "./components/proSearch.jsx";
-import Pricing from "./components/pricing.jsx";
 import Footer from "./components/footer.jsx";
-import ErrorPage from "./pages/errorPage.jsx";
-import Team from "./components/team.jsx";
-import Stats from "./components/stats.jsx";
-import Testimonials from "./components/testimonials.jsx";
+// import ErrorPage from "./pages/errorPage.jsx";
+
 import Profile from "./pages/profile.jsx";
 // import ErrorPage from "./components/footer.jsx";
 
@@ -31,21 +28,14 @@ function App() {
         <div className="bg-white">
           <div className="py-2 my-4">
             <Header />
-              <div>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Login />
-                <CustomerUser />
-                <ProUser />
-                <Profile />
-                <Review />
-                <ProSearch />
-                <Pricing />
-                <Stats />
-                <Testimonials />
-                <Team />
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/sign-in" element={<CustomerUser />} />
+              <Route path="/create-professional" element={<ProUser />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/results" element={<ProSearch />} />
             </Routes>
-              </div>
             <Footer />
             {/* <ErrorPage /> */}
           </div>
