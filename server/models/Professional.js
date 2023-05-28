@@ -30,6 +30,10 @@ const professionalSchema = new Schema(
       type: String,
       required: true,
     },
+    income: {
+      type: String,
+      required: false,
+    },
     reviews: [
       {
         type: Schema.Types.ObjectId,

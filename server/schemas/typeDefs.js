@@ -20,6 +20,7 @@ const typeDefs = gql`
     yearsOfExperience: Int!
     category: String!
     expertise: String!
+    income: String
     rating: Int
     url: String
     reviews: [Review]
@@ -69,6 +70,7 @@ const typeDefs = gql`
       category: String!
       yearsOfExperience: Int!
       expertise: String!
+      income: String
       url: String
     ): User
     addReview(
