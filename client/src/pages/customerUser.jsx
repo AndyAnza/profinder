@@ -9,9 +9,9 @@ export default function SignIn() {
   const [agreed, setAgreed] = useState(false);
 
   return (
-    <div className="isolate bg-indigo-600 px-6 py-24 sm:py-28 lg:px-8">
+    <div className="isolate  px-6 py-24 sm:py-28 lg:px-8">
       <div
-        className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+        className="absolute  inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
       >
         <div
@@ -203,7 +203,7 @@ export default function SignIn() {
           <div className="mt-10">
             <button
               type="submit"
-              className="block w-full rounded-md bg-violet-900 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-violet-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Enviar
             </button>

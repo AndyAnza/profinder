@@ -1,56 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { Combobox } from "@headlessui/react";
 
 const cities = ["CDMX", "Monterrey"];
 
-const category = [
-  {
-    name: "Carpintería",
-  },
-  {
-    name: "Catering",
-  },
-  {
-    name: "Contabilidad",
-  },
-  {
-    name: "Construcción",
-  },
-  {
-    name: "Electricista",
-  },
-  {
-    name: "Enfermería",
-  },
-  {
-    name: "Fotografía",
-  },
-  {
-    name: "Jardinería",
-  },
-  {
-    name: "Limpieza",
-  },
-  {
-    name: "Pintura",
-  },
-  {
-    name: "Plomería",
-  },
-  {
-    name: "Programación",
-  },
-];
+const category = ["Carpintería", "Construcción", "Electricista", "Enfermería"];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function searchDropdown() {
-  const [query, setQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedCity, setSelectedCity] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
 
   const filteredCategory =
     query === ""
@@ -58,6 +21,10 @@ export default function searchDropdown() {
       : category.filter((category) => {
           return category.name.toLowerCase().includes(query.toLowerCase());
         });
+
+  useEffect(() => {
+    setSearchResults(filteredCategory);
+  }, [filteredCategory]);
 
   return (
     <div className="bg-white pt-24 sm:pt-32">
@@ -84,9 +51,9 @@ export default function searchDropdown() {
             </Combobox.Label>
             <div className="relative mt-2">
               <Combobox.Input
-                className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                onChange={(event) => setQuery(event.target.value)}
-                displayValue={(category) => category?.name}
+                className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-300 sm:text-sm sm:leading-6"
+                onChange={(event) => setSelectedCategory(event.target.value)}
+                displayValue={(category) => category}
                 placeholder="ej. Carpintería"
               />
               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
@@ -98,9 +65,9 @@ export default function searchDropdown() {
 
               {filteredCategory.length > 0 && (
                 <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                  {filteredCategory.map((category) => (
+                  {searchResults.map((category) => (
                     <Combobox.Option
-                      key={category.username}
+                      key={category}
                       value={category}
                       className={({ active }) =>
                         classNames(
@@ -118,7 +85,7 @@ export default function searchDropdown() {
                                 selected && "font-semibold"
                               )}
                             >
-                              {category.name}
+                              {category}
                             </span>
                             <span
                               className={classNames(
@@ -126,7 +93,7 @@ export default function searchDropdown() {
                                 active ? "text-indigo-600" : "text-gray-500"
                               )}
                             >
-                              {category.username}
+                              {category}
                             </span>
                           </div>
 
@@ -164,7 +131,7 @@ export default function searchDropdown() {
             <div className="relative mt-2">
               <Combobox.Input
                 className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-300 sm:text-sm sm:leading-6"
-                onChange={(event) => setQuery(event.target.value)}
+                onChange={(event) => setSelectedCity(event.target.value)}
                 displayValue={(city) => city}
                 placeholder="ej. CDMX"
               />
@@ -220,7 +187,7 @@ export default function searchDropdown() {
             </div>
           </Combobox>
           <button
-            type="click"
+            type="button"
             className="flex-none rounded-md bg-indigo-500 px-6 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
           >
             Buscar
