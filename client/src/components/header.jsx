@@ -16,16 +16,16 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 bg-white">
+    <header className="absolute inset-x-0 top-0 z-50 ">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        className="mx-auto py-4 flex max-w-7xl items-center justify-between lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">ProFinder Logo</span>
             <img
-              className="h-28 w-auto"
+              className="h-16 w-auto"
               src="/proFinder_Logo.png"
               alt="ProFinder-Logo"
             />
