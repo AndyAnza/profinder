@@ -43,7 +43,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="isolate bg-indigo-600 px-6 py-24 sm:py-28 lg:px-8">
+    <div className="isolate px-6 py-24 sm:py-28 lg:px-8">
       <div
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
@@ -68,7 +68,7 @@ const Signup = () => {
                 htmlFor="registrate"
                 className="block text-2xl font-bold text-gray-900 mb-2"
               >
-                Crea una cuenta
+                Crea tu cuenta de usuario
               </label>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">

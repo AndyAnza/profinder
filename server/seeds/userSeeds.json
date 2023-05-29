@@ -6,7 +6,7 @@
     "email": "john@example.com",
     "phone": "1234567890",
     "password": "secret123",
-    "profilePicture": "profile1.jpg",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-genae4f2188b3ce1c809639be3b3d53f7ce.jpg",
     "location": "CDMX",
     "createdAt": "2023-05-23T10:00:00.000Z"
   },
@@ -16,9 +16,119 @@
     "lastname": "Smith",
     "email": "jane@example.com",
     "phone": "9876543210",
-    "password": "secret123",
-    "profilePicture": "profile2.jpg",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gen11258adee1999ffd02896303d5739490.jpg",
     "location": "Monterrey",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith1",
+    "name": "Ana",
+    "lastname": "González",
+    "email": "ana1@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gen0b316ecc253c7b5c52e5cb611dc98d93.jpg",
+    "location": "Monterrey",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith2",
+    "name": "Carlos",
+    "lastname": "Hernández",
+    "email": "carlos2@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gena33a60f1c5921412d1ca05d65616b442.jpg",
+    "location": "CDMX",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith3",
+    "name": "Laura",
+    "lastname": "López",
+    "email": "laura3@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gen11566f5a96833378022217fabdf7ad37.jpg",
+    "location": "Monterrey",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith4",
+    "name": "Miguel",
+    "lastname": "García",
+    "email": "miguel4@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gen1148c362b3ff308e3c6890502e4eb727.jpg",
+    "location": "CDMX",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith5",
+    "name": "Isabella",
+    "lastname": "Martínez",
+    "email": "isabella5@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gen0950d3e1f3e71dbdf51605a8022dbdc6.jpg",
+    "location": "Monterrey",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith6",
+    "name": "Diego",
+    "lastname": "Rodríguez",
+    "email": "diego6@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-genb4181f5320830c9d6810f0cd3e13d735.jpg",
+    "location": "CDMX",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith7",
+    "name": "Valeria",
+    "lastname": "Gómez",
+    "email": "valeria7@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gen11c1f8237936dc3269a566d29e250d75.jpg",
+    "location": "Monterrey",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith8",
+    "name": "Javier",
+    "lastname": "Pérez",
+    "email": "javier8@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gene157d695eeb3061860e6ced7a8aa6216.jpg",
+    "location": "CDMX",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith9",
+    "name": "Sofía",
+    "lastname": "Sánchez",
+    "email": "sofia9@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gend6d9626f13c0d075a7213ec2982569e8.jpg",
+    "location": "Monterrey",
+    "createdAt": "2023-05-23T11:00:00.000Z"
+  },
+  {
+    "username": "jane_smith10",
+    "name": "Emilio",
+    "lastname": "Torres",
+    "email": "emilio10@example.com",
+    "phone": "9876543210",
+    "password": "test1234",
+    "profilePicture": "https://this-person-does-not-exist.com/img/avatar-gen500aa136991626f29c8ad0f4818eea37.jpg",
+    "location": "CDMX",
     "createdAt": "2023-05-23T11:00:00.000Z"
   }
 ]
