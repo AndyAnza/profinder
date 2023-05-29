@@ -38,7 +38,7 @@ export default function proSearch({ professionals }) {
                 Experto en: {person.expertise}
               </dd>
               <dt className="sr-only">Income</dt>
-              <dd className="text-sm text-gray-500 mt-3">
+              <dd className="text-xs text-gray-900 mt-3">
                 Ingreso esperado: ${person.income}
               </dd>
             </dl>

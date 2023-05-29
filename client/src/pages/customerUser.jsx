@@ -68,7 +68,7 @@ const Signup = () => {
                 htmlFor="registrate"
                 className="block text-2xl font-bold text-gray-900 mb-2"
               >
-                Crea tu cuenta
+                Crea tu cuenta de usuario
               </label>
             </div>
             <p className="flex justify-center mb-4">
