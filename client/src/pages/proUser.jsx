@@ -6,7 +6,7 @@ import Auth from "../utils/auth";
 
 const AddProfessional = () => {
   const [formState, setFormState] = useState({
-    user: "",
+    user: Auth.getProfile().data._id,
     aboutMe: "",
     category: "",
     yearsOfExperience: "",
@@ -20,15 +20,21 @@ const AddProfessional = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
+    // Parse yearsOfExperience as a number
+    const parsedValue =
+      name === "yearsOfExperience" ? parseInt(value, 10) : value;
+
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: parsedValue,
     });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+    console.log(typeof formState.yearsOfExperience);
+    console.log(Number(formState.yearsOfExperience));
 
     try {
       const { data } = await addProfessional({
@@ -118,7 +124,7 @@ const AddProfessional = () => {
                   </label>
                   <div className="mt-2">
                     <input
-                      type="text"
+                      type="number"
                       name="yearsOfExperience"
                       id="yearsOfExperience"
                       value={formState.yearsOfExperience}
