@@ -1,22 +1,123 @@
 [
-  {
-    "user": "",
-    "aboutMe": "I am a web developer with expertise in frontend technologies.",
-    "yearsOfExperience": 5,
-    "category": "Enfermería",
-    "expertise": "HTML, CSS, JavaScript",
-    "income": "$700 por 7 horas horario matutino. $900 por 7 horas horario nocturno.",
-    "rating": 5,
-    "url": "https://example.com/professional1"
-  },
-  {
-    "user": "",
-    "aboutMe": "I am a graphic designer specializing in branding and illustrations.",
-    "yearsOfExperience": 8,
-    "category": "Carpintería",
-    "expertise": "Adobe Illustrator, Adobe Photoshop",
-    "income": "Cotizar por pieza.",
-    "rating": 5,
-    "url": "https://example.com/professional2"
-  }
+    {
+      "user": "",
+      "aboutMe": "Soy un electricista residencial especializado en reparaciones y mantenimiento de sistemas eléctricos.",
+      "yearsOfExperience": 5,
+      "category": "Electricista",
+      "expertise": "Diagnóstico de fallas, instalaciones residenciales",
+      "income": "200 por hora",
+      "rating": 4,
+      "url": "https://example.com/profesional11"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy un contratista de construcción civil con experiencia en proyectos de infraestructura vial.",
+      "yearsOfExperience": 12,
+      "category": "Construcción",
+      "expertise": "Diseño de carreteras, pavimentación",
+      "income": "380 por hora",
+      "rating": 5,
+      "url": "https://example.com/profesional12"
+    },
+  
+    {
+      "user": "",
+      "aboutMe": "Soy una enfermera registrada con experiencia en cuidados intensivos y medicina de emergencia.",
+      "yearsOfExperience": 6,
+      "category": "Enfermería",
+      "expertise": "Cuidado cardíaco, terapia intravenosa",
+      "income": "150 por hora",
+      "rating": 4,
+      "url": "https://example.com/profesional1"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy un carpintero experto en fabricación de muebles y carpintería a medida.",
+      "yearsOfExperience": 10,
+      "category": "Carpintería",
+      "expertise": "Carpintería fina, ensamblaje",
+      "income": "300 por hora",
+      "rating": 5,
+      "url": "https://example.com/profesional2"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy un electricista licenciado con experiencia en instalaciones eléctricas residenciales y comerciales.",
+      "yearsOfExperience": 8,
+      "category": "Electricista",
+      "expertise": "Instalaciones eléctricas, solución de problemas",
+      "income": "250 por hora",
+      "rating": 4,
+      "url": "https://example.com/profesional3"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy un profesional de la construcción con experiencia en proyectos residenciales y comerciales.",
+      "yearsOfExperience": 12,
+      "category": "Construcción",
+      "expertise": "Gestión de proyectos, albañilería",
+      "income": "350 por hora",
+      "rating": 4,
+      "url": "https://example.com/profesional4"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy una enfermera especializada en cuidados pediátricos y neonatales.",
+      "yearsOfExperience": 5,
+      "category": "Enfermería",
+      "expertise": "Cuidados intensivos pediátricos, lactancia materna",
+      "income": "180 por hora",
+      "rating": 4,
+      "url": "https://example.com/profesional5"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy un carpintero con habilidades en restauración de muebles antiguos y ebanistería.",
+      "yearsOfExperience": 8,
+      "category": "Carpintería",
+      "expertise": "Restauración de muebles, tallado en madera",
+      "income": "280 por hora",
+      "rating": 4,
+      "url": "https://example.com/profesional6"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy un electricista industrial con experiencia en instalaciones de alta tensión.",
+      "yearsOfExperience": 10,
+      "category": "Electricista",
+      "expertise": "Sistemas de control, cableado industrial",
+      "income": "300 por hora",
+      "rating": 5,
+      "url": "https://example.com/profesional7"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy un contratista de construcción especializado en remodelaciones de viviendas.",
+      "yearsOfExperience": 15,
+      "category": "Construcción",
+      "expertise": "Remodelación de cocinas, ampliaciones",
+      "income": "400 por hora",
+      "rating": 5,
+      "url": "https://example.com/profesional8"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy una enfermera con experiencia en atención geriátrica y cuidados paliativos.",
+      "yearsOfExperience": 7,
+      "category": "Enfermería",
+      "expertise": "Cuidados paliativos, demencia",
+      "income": "160 por hora",
+      "rating": 4,
+      "url": "https://example.com/profesional9"
+    },
+    {
+      "user": "",
+      "aboutMe": "Soy un carpintero especializado en diseño y construcción de estructuras de madera.",
+      "yearsOfExperience": 9,
+      "category": "Carpintería",
+      "expertise": "Construcción de pérgolas, encofrado",
+      "income": "320 por hora",
+      "rating": 4,
+      "url": "https://example.com/profesional10"
+    }
 ]

@@ -7,6 +7,10 @@ export const QUERY_PROFESSIONALS = gql`
       _id
       user {
         name
+        lastname
+        email
+        phone
+        profilePicture
       }
       aboutMe
       yearsOfExperience
