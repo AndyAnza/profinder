@@ -4,8 +4,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
   { name: "¿Quiénes somos?", href: "#" },
-  { name: "Clientes Satisfechos", href: "#" },
-  { name: "Servicio al cliente", href: "#" },
+  { name: "Clientes Satisfechos", href: "" },
+  { name: "Servicio al cliente", href: "https://wa.me/8119084023" },
   { name: "Blog", href: "#" },
   <br>
     <br></br>

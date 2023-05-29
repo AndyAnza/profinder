@@ -2,32 +2,32 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 
 const tiers = [
   {
-    name: "Hobby",
+    name: "Básica",
     id: "tier-hobby",
     href: "#",
-    priceMonthly: "$19",
-    description: "El plan perfecto si estás comenzando con nuestro producto.",
+    priceMonthly: "$0.00",
+    description: "El plan perfecto si estás comenzando tu negocio.",
     features: [
-      "25 productos",
-      "Hasta 10,000 suscriptores",
-      "Análisis avanzado",
+      "Acceso de 14 días a la plataforma",
+      "Anuncios publicitarios",
+      "El perfil no almacenara la información despues de 14 días",
       "Tiempo de respuesta de soporte de 24 horas",
     ],
     featured: false,
   },
   {
-    name: "Enterprise",
+    name: "Pro",
     id: "tier-enterprise",
     href: "#",
-    priceMonthly: "$49",
+    priceMonthly: "$10",
     description: "Soporte y infraestructura dedicados para tu empresa.",
     features: [
-      "Productos ilimitados",
-      "Suscriptores ilimitados",
-      "Análisis avanzado",
-      "Representante de soporte dedicado",
-      "Automatizaciones de marketing",
-      "Integraciones personalizadas",
+      "Acceso total",
+      "Elimincación de anuncios ",
+      "Prioridad en busqueda",
+      "Soporte Premium",
+      "Asesoría de perfil",
+      "Acceso prioritario a nuevas funciones",
     ],
     featured: true,
   },
@@ -61,8 +61,7 @@ export default function Pricing() {
         </p>
       </div>
       <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-        Qui iusto aut est earum eos quae. Eligendi est at nam aliquid ad quo
-        reprehenderit in aliquid fugiat dolorum voluptatibus.
+      Elige la membresía que se ajuste a tus necesidades y presupuesto
       </p>
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
         {tiers.map((tier, tierIdx) => (
