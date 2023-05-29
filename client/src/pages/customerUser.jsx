@@ -63,14 +63,17 @@ const Signup = () => {
           </p>
         ) : (
           <form className="mx-auto mt-16 max-w-xl sm:mt-6">
-            <div className="flex justify-center col-span-2 mb-8">
+            <div className="flex justify-center col-span-2 mb-4">
               <label
                 htmlFor="registrate"
                 className="block text-2xl font-bold text-gray-900 mb-2"
               >
-                Crea tu cuenta de usuario
+                Crea tu cuenta
               </label>
             </div>
+            <p className="flex justify-center mb-4">
+              Se parte de nuestra comunidad y disfruta de nuestros servicios.
+            </p>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
                 <label
@@ -110,12 +113,13 @@ const Signup = () => {
                   />
                 </div>
               </div>
+
               <div className="sm:col-span-2">
                 <label
                   htmlFor="username"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  Nombre de Usuario
+                  Username
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -129,6 +133,7 @@ const Signup = () => {
                   />
                 </div>
               </div>
+
               <div className="sm:col-span-2">
                 <label
                   htmlFor="email"
@@ -153,7 +158,7 @@ const Signup = () => {
                   htmlFor="phone-number"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  Telefono
+                  Teléfono
                 </label>
                 <div className="relative mt-2.5">
                   <div className="absolute inset-y-0 left-0 flex items-center"></div>
@@ -176,33 +181,56 @@ const Signup = () => {
                 >
                   Ubicación
                 </label>
-                <div className="relative">
+                <div className=" mt-2.5">
                   <select
-                    className="block appearance-none w-full py-2 px-4 pr-8 rounded-md border border-gray-300 bg-white shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    name="location"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     value={formState.location}
-                    onChange={handleChange}
-                    // onChange={(event) =>
-                    //   setFormState.location(event.target.value)
-                    // }
+                    onChange={(event) =>
+                      setFormState({
+                        ...formState,
+                        location: event.target.value,
+                      })
+                    }
                   >
                     <option>CDMX</option>
                     <option>Monterrey</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                    <svg
-                      className="h-4 w-4 text-gray-500"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 4.414V16a1 1 0 01-2 0V4.414L5.707 7.707a1 1 0 01-1.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
+                </div>
+              </div>
+
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                <svg
+                  className="h-4 w-4 text-gray-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 4.414V16a1 1 0 01-2 0V4.414L5.707 7.707a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="profilePicture"
+                  className="block text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Foto de perfil
+                </label>
+                <div className="mt-2.5">
+                  <input
+                    type="text"
+                    name="profilePicture"
+                    id="profilePicture"
+                    autoComplete="profilePicture"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    value={formState.profilePicture}
+                    onChange={handleChange}
+                    placeholder="Opcional - Formato URL"
+                  />
                 </div>
               </div>
 
@@ -215,7 +243,7 @@ const Signup = () => {
                 </label>
                 <div className="mt-2.5">
                   <input
-                    className="form-input block w-full px-4 py-2 rounded-md border border-gray-300 bg-white shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="******"
                     name="password"
                     type="password"
