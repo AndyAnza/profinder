@@ -121,8 +121,8 @@ export const UPDATE_PROFESSIONAL = gql`
 `;
 
 export const LOGIN_USER = gql`
-  mutation login($password: String!, $email: String!) {
-    login(password: $password, email: $email) {
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
       token
       user {
         username
