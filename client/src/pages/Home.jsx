@@ -31,11 +31,13 @@ export default function Home() {
       <LandingBannner />
       <Cloud />
       <UserInfo />
+
       <SearchDropdown
       // selectedCategory={selectedCategory}
       // setSelectedCategory={setSelectedCategory}
       // selectedCity={selectedCity}
       // setSelectedCity={setSelectedCity}
+
       />
       <JobCategory />
       <Stats />
