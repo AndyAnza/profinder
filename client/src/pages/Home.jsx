@@ -13,7 +13,7 @@ import Cloud from "../components/cloud.jsx";
 import Pricing from "../components/pricing.jsx";
 import Testimonials from "../components/testimonials.jsx";
 import Team from "../components/team.jsx";
-import ProInfo from "../components/proInfo";
+import ProInfo from "./proInfo";
 import UserInfo from "../components/userInfo";
 
 export default function Home() {
@@ -31,12 +31,11 @@ export default function Home() {
       <LandingBannner />
       <Cloud />
       <UserInfo />
-      <ProInfo />
       <SearchDropdown
-        // selectedCategory={selectedCategory}
-        // setSelectedCategory={setSelectedCategory}
-        // selectedCity={selectedCity}
-        // setSelectedCity={setSelectedCity}
+      // selectedCategory={selectedCategory}
+      // setSelectedCategory={setSelectedCategory}
+      // selectedCity={selectedCity}
+      // setSelectedCity={setSelectedCity}
       />
       <JobCategory />
       <Stats />

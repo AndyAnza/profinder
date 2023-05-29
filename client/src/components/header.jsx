@@ -6,6 +6,7 @@ const navigation = [
   { name: "¿Quiénes somos?", href: "#" },
   { name: "Servicio al cliente", href: "https://wa.me/8119084023" },
   { name: "Blog", href: "#" },
+  { name: "Mi Perfil", href: "/perfil" },
   <br>
     <br></br>
   </br>,
@@ -13,7 +14,10 @@ const navigation = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  // const logout = (event) => {
+  //   event.preventDefault();
+  //   Auth.logout();
+  // };
   return (
     <header className="absolute inset-x-0 top-0 z-50 ">
       <nav
