@@ -1,4 +1,5 @@
 import { PaperClipIcon, StarIcon } from "@heroicons/react/20/solid";
+import { useQuery } from "@apollo/client";
 
 const reviews = [
   {
@@ -20,7 +21,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function CombinedComponent() {
+export default function CombinedComponent(props) {
   return (
     <div className="overflow-hidden ">
       <div className="mx-auto max-w-7xl px-6 pt-20 lg:px-8 lg:pt-24">
