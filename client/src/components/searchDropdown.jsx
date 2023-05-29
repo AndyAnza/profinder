@@ -3,28 +3,29 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { Combobox } from "@headlessui/react";
 
 const cities = ["CDMX", "Monterrey"];
-
-const category = ["Carpintería", "Construcción", "Electricista", "Enfermería"];
+const categories = [
+  "Carpintería",
+  "Construcción",
+  "Electricista",
+  "Enfermería",
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function searchDropdown() {
-  const [searchResults, setSearchResults] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
-
-  const filteredCategory =
-    query === ""
-      ? category
-      : category.filter((category) => {
-          return category.name.toLowerCase().includes(query.toLowerCase());
-        });
-
-  useEffect(() => {
-    setSearchResults(filteredCategory);
-  }, [filteredCategory]);
+export default function SearchDropdown({
+  selectedCategory,
+  setSelectedCategory,
+  selectedCity,
+  setSelectedCity,
+}) {
+  const handleSubmit = () => {
+    console.log("Selected Category:", selectedCategory);
+    console.log("Selected City:", selectedCity);
+    setSelectedCategory(selectedCategory);
+    setSelectedCity(selectedCity);
+  };
 
   return (
     <div className="bg-white pt-24 sm:pt-32">
@@ -63,9 +64,9 @@ export default function searchDropdown() {
                 />
               </Combobox.Button>
 
-              {filteredCategory.length > 0 && (
+              {categories.length > 0 && (
                 <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                  {searchResults.map((category) => (
+                  {categories.map((category) => (
                     <Combobox.Option
                       key={category}
                       value={category}
@@ -78,25 +79,14 @@ export default function searchDropdown() {
                     >
                       {({ active, selected }) => (
                         <>
-                          <div className="flex">
-                            <span
-                              className={classNames(
-                                "truncate",
-                                selected && "font-semibold"
-                              )}
-                            >
-                              {category}
-                            </span>
-                            <span
-                              className={classNames(
-                                "ml-2 truncate text-gray-500",
-                                active ? "text-indigo-600" : "text-gray-500"
-                              )}
-                            >
-                              {category}
-                            </span>
-                          </div>
-
+                          <span
+                            className={classNames(
+                              "truncate",
+                              selected && "font-semibold"
+                            )}
+                          >
+                            {category}
+                          </span>
                           {selected && (
                             <span
                               className={classNames(
@@ -189,6 +179,7 @@ export default function searchDropdown() {
           <button
             type="button"
             className="flex-none rounded-md bg-indigo-500 px-6 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+            onClick={handleSubmit}
           >
             Buscar
           </button>

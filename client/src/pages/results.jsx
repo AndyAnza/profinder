@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PROFESSIONALS } from "../utils/queries";
 
@@ -7,8 +8,8 @@ import ProSearch from "../components/proSearch";
 import SearchDropdown from "../components/searchDropdown";
 
 export default function results() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedCity, setSelectedCity] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("Carpintería");
+  const [selectedCity, setSelectedCity] = useState("CDMX");
 
   const { loading, data } = useQuery(QUERY_PROFESSIONALS, {
     variables: {
@@ -34,7 +35,7 @@ export default function results() {
             {loading ? (
               <p> Loading...</p>
             ) : (
-              <ProSearch {...data?.professionals} />
+              <ProSearch professionals={data?.professionals} />
             )}
           </div>
         </div>
