@@ -48,6 +48,7 @@ const typeDefs = gql`
       location: String
       rating: Int
     ): [Professional]
+    profile(userId: ID!): Professional
     review: [Review]
     me: User
   }

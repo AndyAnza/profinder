@@ -6,7 +6,7 @@ const navigation = [
   { name: "¿Quiénes somos?", href: "#" },
   { name: "Servicio al cliente", href: "https://wa.me/8119084023" },
   { name: "Blog", href: "#" },
-  { name: "Mi Perfil", href: "/perfil" },
+  { name: "Mi Perfil", href: "/perfil/:userId" },
   <br>
     <br></br>
   </br>,

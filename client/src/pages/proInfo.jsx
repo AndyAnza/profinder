@@ -1,6 +1,8 @@
 import { PaperClipIcon, StarIcon } from "@heroicons/react/20/solid";
+import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-
+import { GET_PROFILE, QUERY_ME } from "../utils/queries";
+import Auth from "../utils/auth";
 const reviews = [
   {
     id: 1,
@@ -21,7 +23,36 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function CombinedComponent(props) {
+export default function CombinedComponent() {
+  const { userId } = useParams();
+
+  // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+  const { loading, data } = useQuery(userId ? GET_PROFILE : QUERY_ME, {
+    variables: { userId: userId },
+  });
+
+  // Check if data is returning from the `QUERY_ME` query, then the `GET_PROFILE` query
+  const profile = data?.profile || data?.me || {};
+  console.log(profile);
+
+  // Use React Router's `<Navigate />` component to redirect to personal profile page if username is yours
+  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
+    return <Navigate to="/profile" />;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!profile?.name) {
+    return (
+      <h4 className="mt-32">
+        You need to be logged in to see your profile page. Use the navigation
+        links above to sign up or log in!
+      </h4>
+    );
+  }
+
   return (
     <div className="overflow-hidden ">
       <div className="mx-auto max-w-7xl px-6 pt-20 lg:px-8 lg:pt-24">
@@ -30,14 +61,14 @@ export default function CombinedComponent(props) {
             <figcaption className="mt-6 flex items-center gap-x-4">
               <img
                 className="h-20 w-20 rounded-full bg-gray-50"
-                src="https://scontent.fpbc6-1.fna.fbcdn.net/v/t39.30808-6/349981589_277826397922320_4663475824177658094_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=f6LWDAyk56gAX-K-dL-&_nc_ht=scontent.fpbc6-1.fna&oh=00_AfBRItEDnSHPcgl_iu0sxqfx1vo_cHmih2w6i3-mlNYZoQ&oe=647A3CF0"
+                src={profile.profilePicture}
                 alt=""
               />
               <div>
                 <div className="mt-4 flex ">
                   <div>
                     <h2 className=" text-3xl lg:text-4xl font-semibold leading-7 text-gray-900">
-                      Nombre del Perfil
+                      {profile.name} {profile.lastname}
                     </h2>
                   </div>
                   <div className="">
@@ -52,10 +83,10 @@ export default function CombinedComponent(props) {
                 <dt className="sr-only">Category</dt>
                 <dd className="mt-4 flex">
                   <p className="mr-6 max-w-2xl text-md leading-6 text-indigo-600">
-                    User name
+                    {profile.username}
                   </p>
                   <span className=" items-center rounded-full bg-green-50 px-4 py-1 text-sm font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                    categoria
+                    {profile.category}
                   </span>
                 </dd>{" "}
               </div>
@@ -69,21 +100,27 @@ export default function CombinedComponent(props) {
                   <dt className="text-sm font-medium text-gray-900">
                     Ubicación
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd>
+                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {profile.location}
+                  </dd>
                 </div>
 
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-900">
                     Teléfono
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd>
+                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {profile.phone}
+                  </dd>
                 </div>
 
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-900">
                     Correo electrónico
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd>
+                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {profile.email}
+                  </dd>
                 </div>
               </dl>
             </div>
@@ -96,11 +133,7 @@ export default function CombinedComponent(props) {
                     Acerca de mi
                   </dt>
                   <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                    incididunt cillum culpa consequat. Excepteur qui ipsum
-                    aliquip consequat sint. Sit id mollit nulla mollit nostrud
-                    in ea officia proident. Irure nostrud pariatur mollit ad
-                    adipisicing reprehenderit deserunt qui eu.
+                    {profile.aboutMe}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
