@@ -36,7 +36,7 @@ const Signup = () => {
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
+      Auth.signIn(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -58,9 +58,27 @@ const Signup = () => {
       </div>
       <div className="mx-auto mt-8 max-w-xl sm:mt-6 bg-white border border-gray-300 rounded-lg px-8 py-6">
         {data ? (
-          <p>
-            Success! You may now head <Link to="/">back to the homepage.</Link>
-          </p>
+          <div className="">
+            <p className="">¡Éxito! Has creado tu cuenta de usuario</p>
+            <div className="grid grid-cols-2">
+              <div>
+                <Link
+                  to="/results"
+                  className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                >
+                  Busca un profesional
+                </Link>
+              </div>
+              <div>
+                <Link
+                  to="/create-professional"
+                  className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                >
+                  Crea tu cuenta profesional
+                </Link>
+              </div>
+            </div>
+          </div>
         ) : (
           <form className="mx-auto mt-16 max-w-xl sm:mt-6">
             <div className="flex justify-center col-span-2 mb-4">

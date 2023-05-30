@@ -23,6 +23,7 @@ export default function Header() {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    window.location.href = "/";
   };
   const [loginOpen, setLoginOpen] = useState(false);
 
@@ -33,12 +34,9 @@ export default function Header() {
   };
 
   const handleOptionSelect = (option) => {
-    
     setDropdownOpen(false);
     window.location.href = option.value;
   };
-
-
 
   return (
     <header className="absolute inset-x-0 top-0 z-50 ">
