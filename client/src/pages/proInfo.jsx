@@ -20,15 +20,33 @@ const reviews = [
   // More reviews...
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function profilePage() {
   const { userId } = useParams();
   const navigate = useNavigate();
   const [removeUser] = useMutation(REMOVE_USER);
 
+    // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+    const { loading, data } = useQuery(userId ? GET_PROFILE : QUERY_ME, {
+      variables: { userId: userId },
+    });
+  
+    // Check if data is returning from the `QUERY_ME` query, then the `GET_PROFILE` query
+    const profile = data?.me || data?.profile || {};
+    console.log(profile);
+  
+    if (loading) {
+      return <div className="mt-32 text-center">Cargando datos...</div>;
+    }
+  
+    // if (!profile?.user.name) {
+    //   return (
+    //     <h4 className="mt-32">
+    //       You need to be logged in to see your profile page. Use the navigation
+    //       links above to sign up or log in!
+    //     </h4>
+    //   );
+    // }
+    
   const handleRemoveUser = async (userId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
@@ -48,34 +66,12 @@ export default function profilePage() {
         Auth.logout();
 
         // Redirect to the home page
-        navigate.push("/");
+        navigate("/");
       }
     } catch (err) {
       console.error(err);
     }
   };
-
-  // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
-  const { loading, data } = useQuery(userId ? GET_PROFILE : QUERY_ME, {
-    variables: { userId: userId },
-  });
-
-  // Check if data is returning from the `QUERY_ME` query, then the `GET_PROFILE` query
-  const profile = data?.me || data?.profile || {};
-  console.log(profile);
-
-  if (loading) {
-    return <div className="mt-32 text-center">Cargando datos...</div>;
-  }
-
-  if (!profile?.user.name) {
-    return (
-      <h4 className="mt-32">
-        You need to be logged in to see your profile page. Use the navigation
-        links above to sign up or log in!
-      </h4>
-    );
-  }
 
   return (
     <div className="overflow-hidden ">

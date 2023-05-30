@@ -192,6 +192,9 @@ const Signup = () => {
                       })
                     }
                   >
+                    <option className="text-gray-300">
+                      Elige tu ciudad...
+                    </option>
                     <option>CDMX</option>
                     <option>Monterrey</option>
                   </select>
@@ -266,7 +269,7 @@ const Signup = () => {
         )}
 
         {error && (
-          <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+          <div className="my-3 p-3 text-sm text-red-900">{error.message}</div>
         )}
       </div>
     </div>
