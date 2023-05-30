@@ -59,7 +59,7 @@ export default function Header() {
         <div className="hidden lg:flex lg:justify-start space-x-4">
           {Auth.loggedIn() ? (
             <>
-              <span>Bienvenido!</span>
+              <span>Bienvenido! {Auth.getProfile().data.email}</span>
               <a
                 href={`/profile/${Auth.getProfile().data._id}`}
                 className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -129,6 +129,22 @@ export default function Header() {
               </div>
 
               <div className="py-6">
+              {Auth.loggedIn() ? (
+                  <><a
+                  href={`/profile/${Auth.getProfile().data._id}`}
+                  className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Mi perfil
+                </a>
+                  <button
+                    onClick={logout}
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    Cerrar sesión
+                  </button>
+                  </>
+                ) : (
+                  <>
                 <a
                   href="/login"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
@@ -141,6 +157,8 @@ export default function Header() {
                 >
                   Registrarse
                 </a>
+                </>
+  )}
               </div>
             </div>
           </div>

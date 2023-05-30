@@ -43,11 +43,13 @@ export default function ProSearch({ professionals }) {
         {professionals.map((person) => (
           <div key={person._id} className="carousel-item col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow border-2">
             <div className="flex flex-1 flex-col p-8">
+              <a href={`/profile/${person._id}`}>
               <img
                 className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
                 src={person.user.profilePicture}
                 alt=""
               />
+              </a>
               <h3 className="mt-6 text-sm font-medium text-gray-900">
                 {person.user.name} {person.user.lastname}
               </h3>
