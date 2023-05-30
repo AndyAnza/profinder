@@ -16,10 +16,10 @@ const typeDefs = gql`
   type Professional {
     _id: ID!
     user: User!
-    aboutMe: String!
-    yearsOfExperience: Int!
-    category: String!
-    expertise: String!
+    aboutMe: String
+    yearsOfExperience: Int
+    category: String
+    expertise: String
     income: String
     rating: Int
     url: String
@@ -48,6 +48,7 @@ const typeDefs = gql`
       location: String
       rating: Int
     ): [Professional]
+    profile(userId: ID!): Professional
     review: [Review]
     me: User
   }

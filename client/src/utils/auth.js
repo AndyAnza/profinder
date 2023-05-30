@@ -3,6 +3,7 @@ import decode from "jwt-decode";
 class AuthService {
   // get user data from JSON web token by decoding it
   getProfile() {
+    console.log(decode(this.getToken()));
     return decode(this.getToken());
   }
 
@@ -20,7 +21,6 @@ class AuthService {
     }
     return false;
   }
-
 
   getToken() {
     // Retrieves the user token from localStorage

@@ -89,9 +89,17 @@ export const ADD_REVIEW = gql`
 `;
 
 export const REMOVE_USER = gql`
-  mutation removeUser {
-    removeUser {
+  mutation removeUser($userId: ID!) {
+    removeUser(userId: $userId) {
       _id
+      username
+      name
+      lastname
+      email
+      phone
+      profilePicture
+      location
+      createdAt
     }
   }
 `;
