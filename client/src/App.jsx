@@ -16,6 +16,7 @@ import Login from "./pages/login.jsx";
 import CustomerUser from "./pages/customerUser.jsx";
 import ProUser from "./pages/proUser.jsx";
 import Results from "./pages/results.jsx";
+import ProInfo from "./pages/proInfo.jsx";
 import Footer from "./components/footer.jsx";
 // import ErrorPage from "./pages/errorPage.jsx";
 
@@ -58,7 +59,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/sign-in" element={<CustomerUser />} />
               <Route path="/create-professional" element={<ProUser />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/perfil" element={<ProInfo />} />
               <Route path="/results" element={<Results />} />
             </Routes>
             <Footer />
