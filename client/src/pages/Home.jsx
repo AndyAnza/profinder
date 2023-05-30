@@ -3,7 +3,6 @@ import React from "react";
 
 // Components
 import LandingBannner from "../components/landingBanner";
-import SearchDropdown from "../components/searchDropdown";
 import JobCategory from "../components/jobCategory";
 import Stats from "../components/stats.jsx";
 import Cloud from "../components/cloud.jsx";
@@ -17,7 +16,6 @@ export default function Home() {
     <main>
       <LandingBannner />
       <Cloud />
-      <SearchDropdown />
       <JobCategory />
       <Stats />
       <Pricing />
