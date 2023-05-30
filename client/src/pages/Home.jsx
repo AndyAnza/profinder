@@ -16,6 +16,7 @@ import Features from "../components/features";
 import Team from "../components/team.jsx";
 import ProInfo from "./proInfo";
 import UserInfo from "../components/userInfo";
+import Faq from "./faq";
 
 export default function Home() {
   // const [selectedCategory, setSelectedCategory] = useState("Carpintería");
@@ -46,6 +47,7 @@ export default function Home() {
       <Pricing />
       <Testimonials />
       {/* <Team /> */}
+      <Faq />
     </main>
   );
 }

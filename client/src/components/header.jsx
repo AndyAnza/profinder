@@ -6,7 +6,7 @@ import Auth from "../utils/auth";
 const navigation = [
   { name: "¿Quiénes somos?", href: "#" },
   { name: "Servicio al cliente", href: "https://wa.me/8119084023" },
-  { name: "Blog", href: "#" },
+  { name: "Preguntas Frecuentes", href: "#" },
   { name: "Mi Perfil", href: "/perfil" },
   <br>
     <br></br>
