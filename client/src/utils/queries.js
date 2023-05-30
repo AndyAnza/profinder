@@ -38,3 +38,36 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const GET_PROFILE = gql`query profile($userId: ID!) {
+  profile(userId: $userId) {
+    _id
+    user {
+      _id
+      username
+      name
+      lastname
+      email
+      phone
+      profilePicture
+      location
+      createdAt
+    }
+    aboutMe
+    yearsOfExperience
+    category
+    expertise
+    income
+    rating
+    url
+    reviews {
+      _id
+      comment
+      rating
+      createdAt
+      user {
+        username
+      }
+    }
+  }
+}`;

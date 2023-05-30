@@ -10,6 +10,16 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    profile: async (parent, args, context) => {
+      if (context.user) {
+        const profile = await Professional.findOne({ user: args.userId })
+          .populate("user")
+          .populate("reviews");
+        return profile;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
     // filtro category y rating si funciona
     professionals: async (parent, args) => {
       const filters = {};
