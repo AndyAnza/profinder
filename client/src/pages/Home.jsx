@@ -9,13 +9,11 @@ import Cloud from "../components/cloud.jsx";
 import Pricing from "../components/pricing.jsx";
 import Testimonials from "../components/testimonials.jsx";
 import Features from "../components/features";
-import Team from "../components/team.jsx";
+// import Team from "../components/team.jsx";
 import ProInfo from "./proInfo";
 import UserInfo from "../components/userInfo";
-import Faq from "./faq";
 
 export default function Home() {
-  
   return (
     <main>
       <LandingBannner />
@@ -27,7 +25,6 @@ export default function Home() {
       <Pricing />
       <Testimonials />
       {/* <Team /> */}
-      <Faq />
     </main>
   );
 }

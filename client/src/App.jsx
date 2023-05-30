@@ -19,6 +19,7 @@ import Results from "./pages/results.jsx";
 import ProInfo from "./pages/proInfo.jsx";
 import Footer from "./components/footer.jsx";
 import Us from "./pages/us.jsx";
+import Faq from "./pages/faq.jsx";
 // import ErrorPage from "./pages/errorPage.jsx";
 
 import Profile from "./pages/profile.jsx";
@@ -63,6 +64,7 @@ function App() {
               <Route path="/profile/:userId" element={<ProInfo />} />
               <Route path="/results" element={<Results />} />
               <Route path="/us" element={<Us />} />
+              <Route path="/faq" element={<Faq />} />
             </Routes>
             <Footer />
             {/* <ErrorPage /> */}
