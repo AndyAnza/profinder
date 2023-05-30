@@ -19,7 +19,7 @@ export default function results() {
   });
 
   return (
-    <div className="my-2 ">
+    <div className="my-12 ">
       <SearchDropdown
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}

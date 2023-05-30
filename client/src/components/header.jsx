@@ -45,6 +45,7 @@ export default function Header() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
+        
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
             <a
