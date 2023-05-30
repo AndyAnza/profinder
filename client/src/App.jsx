@@ -18,6 +18,7 @@ import ProUser from "./pages/proUser.jsx";
 import Results from "./pages/results.jsx";
 import ProInfo from "./pages/proInfo.jsx";
 import Footer from "./components/footer.jsx";
+import Us from "./pages/us.jsx";
 // import ErrorPage from "./pages/errorPage.jsx";
 
 import Profile from "./pages/profile.jsx";
@@ -61,6 +62,7 @@ function App() {
               <Route path="/create-professional" element={<ProUser />} />
               <Route path="/perfil" element={<ProInfo />} />
               <Route path="/results" element={<Results />} />
+              <Route path="/us" element={<Us />} />
             </Routes>
             <Footer />
             {/* <ErrorPage /> */}
