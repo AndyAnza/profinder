@@ -128,7 +128,8 @@ export default function ProfilePage() {
                       <input
                         type="text"
                         className="mt-1 text-3xl leading-6 text-gray-900 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
-                        value={profile.user.name}
+                        placeholder={profile.user.name}
+                        value={name || profile.user.name}
                         onChange={handleNameChange}
                       />
                     )}
@@ -147,7 +148,7 @@ export default function ProfilePage() {
                         <input
                           type="text"
                           className="mt-1 text-3xl leading-6 text-gray-900 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
-                          value={profile.user.lastname}
+                          value={lastname || profile.user.lastname}
                           onChange={handleLastnameChange}
                         />
                       </div>
@@ -191,8 +192,9 @@ export default function ProfilePage() {
                     <input
                       type="text"
                       className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
-                      value={profile.user.phone}
+                      value={phone || profile.user.phone}
                       onChange={handlePhoneChange}
+                      maxLength={10}
                     />
                   )}
                 </div>
@@ -209,7 +211,7 @@ export default function ProfilePage() {
                     <input
                       type="text"
                       className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
-                      value={profile.user.email}
+                      value={email || profile.user.email}
                       onChange={handleEmailChange}
                     />
                   )}
@@ -232,7 +234,7 @@ export default function ProfilePage() {
                     <input
                       type="text"
                       className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
-                      value={profile.aboutMe}
+                      value={aboutMe || profile.aboutMe}
                       onChange={handleAboutMeChange}
                     />
                   )}
@@ -257,7 +259,7 @@ export default function ProfilePage() {
                     <input
                       type="text"
                       className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
-                      value={profile.expertise}
+                      value={expertise || profile.expertise}
                       onChange={handleExpertiseChange}
                     />
                   )}
@@ -272,9 +274,9 @@ export default function ProfilePage() {
                     </dd>
                   ) : (
                     <input
-                      type="text"
+                      type="number"
                       className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
-                      value={profile.yearsOfExperience}
+                      value={yearsOfExperience || profile.yearsOfExperience}
                       onChange={handleYearsOfExperienceChange}
                     />
                   )}
@@ -291,7 +293,7 @@ export default function ProfilePage() {
                     <input
                       type="text"
                       className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
-                      value={profile.income}
+                      value={income || profile.income}
                       onChange={handleIncomeChange}
                     />
                   )}
