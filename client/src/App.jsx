@@ -59,7 +59,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/sign-in" element={<CustomerUser />} />
               <Route path="/create-professional" element={<ProUser />} />
-              <Route path="/perfil" element={<ProInfo />} />
+              <Route path="/profile/:userId" element={<ProInfo />} />
               <Route path="/results" element={<Results />} />
             </Routes>
             <Footer />

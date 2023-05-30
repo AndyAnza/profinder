@@ -32,26 +32,21 @@ export default function CombinedComponent() {
   });
 
   // Check if data is returning from the `QUERY_ME` query, then the `GET_PROFILE` query
-  const profile = data?.profile || data?.me || {};
+  const profile = data?.me || data?.profile || {};
   console.log(profile);
-
-  // Use React Router's `<Navigate />` component to redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-    return <Navigate to="/profile" />;
-  }
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!profile?.name) {
-    return (
-      <h4 className="mt-32">
-        You need to be logged in to see your profile page. Use the navigation
-        links above to sign up or log in!
-      </h4>
-    );
-  }
+  // if (!profile?.name) {
+  //   return (
+  //     <h4 className="mt-32">
+  //       You need to be logged in to see your profile page. Use the navigation
+  //       links above to sign up or log in!
+  //     </h4>
+  //   );
+  // }
 
   return (
     <div className="overflow-hidden ">
@@ -61,14 +56,14 @@ export default function CombinedComponent() {
             <figcaption className="mt-6 flex items-center gap-x-4">
               <img
                 className="h-20 w-20 rounded-full bg-gray-50"
-                src={profile.profilePicture}
+                src={profile.user.profilePicture}
                 alt=""
               />
               <div>
                 <div className="mt-4 flex ">
                   <div>
                     <h2 className=" text-3xl lg:text-4xl font-semibold leading-7 text-gray-900">
-                      {profile.name} {profile.lastname}
+                      {profile.user.name} {profile.user.lastname}
                     </h2>
                   </div>
                   <div className="">
@@ -83,7 +78,7 @@ export default function CombinedComponent() {
                 <dt className="sr-only">Category</dt>
                 <dd className="mt-4 flex">
                   <p className="mr-6 max-w-2xl text-md leading-6 text-indigo-600">
-                    {profile.username}
+                    {profile.user.username}
                   </p>
                   <span className=" items-center rounded-full bg-green-50 px-4 py-1 text-sm font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
                     {profile.category}
@@ -101,7 +96,7 @@ export default function CombinedComponent() {
                     Ubicación
                   </dt>
                   <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {profile.location}
+                    {profile.user.location}
                   </dd>
                 </div>
 
@@ -110,7 +105,7 @@ export default function CombinedComponent() {
                     Teléfono
                   </dt>
                   <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {profile.phone}
+                    {profile.user.phone}
                   </dd>
                 </div>
 
@@ -119,7 +114,7 @@ export default function CombinedComponent() {
                     Correo electrónico
                   </dt>
                   <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {profile.email}
+                    {profile.user.email}
                   </dd>
                 </div>
               </dl>
@@ -140,25 +135,33 @@ export default function CombinedComponent() {
                   <dt className="text-sm font-medium text-gray-900">
                     Categoría
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd>
+                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {profile.category}
+                  </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-900">
                     Soy experto en
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd>
+                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {profile.expertise}{" "}
+                  </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-900">
                     Años de experiencia
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd>
+                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {profile.yearsOfExperience}
+                  </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-900">
                     Precio por servicio
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd>
+                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {profile.income}
+                  </dd>
                 </div>
 
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -179,7 +182,7 @@ export default function CombinedComponent() {
                           <div className="ml-4 flex min-w-0 flex-1 gap-2">
                             <span className="truncate font-medium">
                               <a
-                                href=""
+                                href={profile.url}
                                 className="text-indigo-600 hover:text-indigo-500"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -228,14 +231,14 @@ export default function CombinedComponent() {
                   Reseñas de mis clientes
                 </h2>
                 <div className="mt-6 space-y-10 divide-y divide-gray-200 border-b border-t border-gray-200 pb-10">
-                  {reviews.map((review) => (
+                  {profile.reviews.map((review) => (
                     <div
-                      key={review.id}
+                      key={review._id}
                       className="pt-10 lg:grid lg:grid-cols-12 lg:gap-x-8"
                     >
                       <div className="lg:col-span-8 lg:col-start-5 xl:col-span-9 xl:col-start-4 xl:grid xl:grid-cols-3 xl:items-start xl:gap-x-8">
                         <div className="flex items-center xl:col-span-1">
-                          <div className="flex items-center">
+                          {/* <div className="flex items-center">
                             {[0, 1, 2, 3, 4].map((rating) => (
                               <StarIcon
                                 key={rating}
@@ -248,7 +251,7 @@ export default function CombinedComponent() {
                                 aria-hidden="true"
                               />
                             ))}
-                          </div>
+                          </div> */}
                           <p className="ml-3 text-sm text-gray-700">
                             {review.rating}
                             <span className="sr-only"> out of 5 stars</span>
@@ -257,25 +260,25 @@ export default function CombinedComponent() {
 
                         <div className="mt-4 lg:mt-6 xl:col-span-2 xl:mt-0">
                           <h3 className="text-sm font-medium text-gray-900">
-                            {review.title}
+                            {review.comment}
                           </h3>
 
-                          <div
+                          {/* <div
                             className="mt-3 space-y-6 text-sm text-gray-500"
                             dangerouslySetInnerHTML={{ __html: review.content }}
-                          />
+                          /> */}
                         </div>
                       </div>
 
                       <div className="mt-6 flex items-center text-sm lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:mt-0 lg:flex-col lg:items-start xl:col-span-3">
                         <p className="font-medium text-gray-900">
-                          {review.author}
+                          {review.user.name}
                         </p>
                         <time
-                          dateTime={review.datetime}
+                          dateTime={review.createdAt}
                           className="ml-4 border-l border-gray-200 pl-4 text-gray-500 lg:ml-0 lg:mt-2 lg:border-0 lg:pl-0"
                         >
-                          {review.date}
+                          {review.createdAt}
                         </time>
                       </div>
                     </div>

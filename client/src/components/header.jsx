@@ -7,7 +7,6 @@ const navigation = [
   { name: "¿Quiénes somos?", href: "#" },
   { name: "Servicio al cliente", href: "https://wa.me/8119084023" },
   { name: "Blog", href: "#" },
-  { name: "Mi Perfil", href: "/perfil/:userId" },
   <br>
     <br></br>
   </br>,
@@ -15,11 +14,11 @@ const navigation = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const logout =(event) =>{
+  const logout = (event) => {
     event.preventDefault();
     Auth.logout();
-  }
-  const [loginOpen, setLoginOpen]= useState(false);
+  };
+  const [loginOpen, setLoginOpen] = useState(false);
   return (
     <header className="absolute inset-x-0 top-0 z-50 ">
       <nav
@@ -58,40 +57,39 @@ export default function Header() {
           ))}
         </div>
         <div className="hidden lg:flex lg:justify-start space-x-4">
-        {Auth.loggedIn() ? (
-          <>
-            <span>Bienvenido!</span>
-            <a
-              href="/profile"
-              className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Mi perfil
-            </a>
-            <button
-              onClick={logout}
-              className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Cerrar sesión
-            </button>
-          </>
-        ) : (
-          <>
-            <a
-              href="/login"
-              className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Iniciar sesión
-            </a>
-            <a
-              href="/sign-in"
-              className="rounded-md bg-white-600 px-2 py-1.5 text-xs font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Registrarse
-            </a>
-          </>
-        )}
-      </div>
-
+          {Auth.loggedIn() ? (
+            <>
+              <span>Bienvenido!</span>
+              <a
+                href={`/profile/${Auth.getProfile().data._id}`}
+                className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Mi perfil
+              </a>
+              <button
+                onClick={logout}
+                className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Cerrar sesión
+              </button>
+            </>
+          ) : (
+            <>
+              <a
+                href="/login"
+                className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Iniciar sesión
+              </a>
+              <a
+                href="/sign-in"
+                className="rounded-md bg-white-600 px-2 py-1.5 text-xs font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Registrarse
+              </a>
+            </>
+          )}
+        </div>
       </nav>
 
       <Dialog
@@ -153,7 +151,7 @@ export default function Header() {
         as="div"
         className="fixed inset-0 z-50"
         open={loginOpen}
-        onClose={()=> setLoginOpen(false)}
+        onClose={() => setLoginOpen(false)}
       >
         <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
 

@@ -61,8 +61,10 @@ export const GET_PROFILE = gql`query profile($userId: ID!) {
     rating
     url
     reviews {
+      _id
       comment
       rating
+      createdAt
       user {
         username
       }
