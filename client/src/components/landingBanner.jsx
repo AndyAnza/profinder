@@ -49,10 +49,11 @@ export default function landingBannner() {
         <div className="mx-auto max-w-7xl px-6 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                ProFinder: La manera más confiable de encontrar expertos en
-                problemas de tu día a día.
+
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            Descubre a los expertos más confiables para tus desafíos diarios.
               </h1>
+              <br></br>
               <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
                 Buscas un carpintero, electricista, plomero o alguien de
                 confianza que te ayude en esos problemas cotidianos? Encuentralo
@@ -68,12 +69,7 @@ export default function landingBannner() {
                 >
                   ¡Encuéntralo ahora!
                 </a>
-                <a
-                  href="#"
-                  className="text-sm font-semibold leading-6 text-gray-900"
-                >
-                  Unirme a la comunidad <span aria-hidden="true">→</span>
-                </a>
+ 
               </div>
             </div>
             <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
