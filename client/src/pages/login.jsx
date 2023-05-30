@@ -136,9 +136,13 @@ const Login = (props) => {
           </form>
 
           {data ? (
-            <p>
-              Success! You may now head{" "}
-              <Link to="/">back to the homepage.</Link>
+            <p className="mt-4 text-sm text-red-600 text-center">
+              Usuario o contraseña incorrecto.
+              <br />
+              <br />{" "}
+              <Link className="text-gray-800 underline" to="/sign-in">
+                Crea tu cuenta aquí
+              </Link>
             </p>
           ) : null}
 
