@@ -4,9 +4,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Auth from "../utils/auth";
 
 const navigation = [
-  { name: "¿Quiénes somos?", href: "#" },
+  { name: "¿Quiénes somos?", href: "us" },
   { name: "Servicio al cliente", href: "https://wa.me/8119084023" },
-  { name: "Preguntas Frecuentes", href: "#" },
+  { name: "Preguntas Frecuentes", href: "faq" },
   { name: "Mi Perfil", href: "/perfil" },
   <br>
     <br></br>
@@ -46,7 +46,7 @@ export default function Header() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        
+
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
             <a
@@ -131,36 +131,37 @@ export default function Header() {
               </div>
 
               <div className="py-6">
-              {Auth.loggedIn() ? (
-                  <><a
-                  href={`/profile/${Auth.getProfile().data._id}`}
-                  className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Mi perfil
-                </a>
-                  <button
-                    onClick={logout}
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    Cerrar sesión
-                  </button>
+                {Auth.loggedIn() ? (
+                  <>
+                    <a
+                      href={`/profile/${Auth.getProfile().data._id}`}
+                      className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >
+                      Mi perfil
+                    </a>
+                    <button
+                      onClick={logout}
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Cerrar sesión
+                    </button>
                   </>
                 ) : (
                   <>
-                <a
-                  href="/login"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Iniciar sesión
-                </a>
-                <a
-                  href="/sign-in"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Registrarse
-                </a>
-                </>
-  )}
+                    <a
+                      href="/login"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Iniciar sesión
+                    </a>
+                    <a
+                      href="/sign-in"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Registrarse
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           </div>
