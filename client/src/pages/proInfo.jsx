@@ -1,7 +1,8 @@
 import { PaperClipIcon, StarIcon } from "@heroicons/react/20/solid";
-import { Navigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useNavigate, useParams } from "react-router-dom";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_PROFILE, QUERY_ME } from "../utils/queries";
+import { REMOVE_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 const reviews = [
   {
@@ -23,8 +24,36 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function CombinedComponent() {
+export default function profilePage() {
   const { userId } = useParams();
+  const navigate = useNavigate();
+  const [removeUser] = useMutation(REMOVE_USER);
+
+  const handleRemoveUser = async (userId) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false;
+    }
+    try {
+      const { data } = await removeUser({
+        variables: { userId },
+      });
+      if (!data) {
+        throw new Error("Something went wrong!");
+      }
+
+      // Check if the user was deleted
+      if (data) {
+        // Perform logout
+        Auth.logout();
+
+        // Redirect to the home page
+        navigate.push("/");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(userId ? GET_PROFILE : QUERY_ME, {
@@ -36,17 +65,17 @@ export default function CombinedComponent() {
   console.log(profile);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="mt-32 text-center">Cargando datos...</div>;
   }
 
-  // if (!profile?.name) {
-  //   return (
-  //     <h4 className="mt-32">
-  //       You need to be logged in to see your profile page. Use the navigation
-  //       links above to sign up or log in!
-  //     </h4>
-  //   );
-  // }
+  if (!profile?.user.name) {
+    return (
+      <h4 className="mt-32">
+        You need to be logged in to see your profile page. Use the navigation
+        links above to sign up or log in!
+      </h4>
+    );
+  }
 
   return (
     <div className="overflow-hidden ">
@@ -290,6 +319,7 @@ export default function CombinedComponent() {
               <button
                 type="submit"
                 className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={() => handleRemoveUser(profile.user._id)}
               >
                 Eliminar Perfil
               </button>
