@@ -1,4 +1,5 @@
 import { PaperClipIcon, StarIcon } from "@heroicons/react/20/solid";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_PROFILE, QUERY_ME } from "../utils/queries";
@@ -20,33 +21,37 @@ const reviews = [
   // More reviews...
 ];
 
-export default function profilePage() {
+export default function ProfilePage() {
   const { userId } = useParams();
   const navigate = useNavigate();
   const [removeUser] = useMutation(REMOVE_USER);
 
-    // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
-    const { loading, data } = useQuery(userId ? GET_PROFILE : QUERY_ME, {
-      variables: { userId: userId },
-    });
-  
-    // Check if data is returning from the `QUERY_ME` query, then the `GET_PROFILE` query
-    const profile = data?.me || data?.profile || {};
-    console.log(profile);
-  
-    if (loading) {
-      return <div className="mt-32 text-center">Cargando datos...</div>;
-    }
-  
-    // if (!profile?.user.name) {
-    //   return (
-    //     <h4 className="mt-32">
-    //       You need to be logged in to see your profile page. Use the navigation
-    //       links above to sign up or log in!
-    //     </h4>
-    //   );
-    // }
-    
+  // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+  const { loading, data } = useQuery(userId ? GET_PROFILE : QUERY_ME, {
+    variables: { userId: userId },
+  });
+
+  // Check if data is returning from the `QUERY_ME` query, then the `GET_PROFILE` query
+  const profile = data?.me || data?.profile || {};
+  console.log(profile);
+
+  // SET STATE of fields that can be updated by the user.
+  const [editMode, setEditMode] = useState(false);
+  const [name, setName] = useState(profile?.user?.name || "");
+  const [lastname, setLastname] = useState(profile?.user?.lastname || "");
+  const [phone, setPhone] = useState(profile?.user?.phone || "");
+  const [email, setEmail] = useState(profile?.user?.email || "");
+  const [aboutMe, setAboutMe] = useState(profile?.aboutMe || "");
+  const [expertise, setExpertise] = useState(profile?.expertise || "");
+  const [yearsOfExperience, setYearsOfExperience] = useState(
+    profile?.yearsOfExperience || ""
+  );
+  const [income, setIncome] = useState(profile?.income || "");
+
+  if (loading) {
+    return <div className="mt-32 text-center">Cargando datos...</div>;
+  }
+
   const handleRemoveUser = async (userId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
@@ -73,31 +78,80 @@ export default function profilePage() {
     }
   };
 
+  const handleEditProfile = () => {
+    setEditMode(true);
+  };
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+  const handleLastnameChange = (e) => {
+    setLastname(e.target.value);
+  };
+  const handlePhoneChange = (e) => {
+    setPhone(e.target.value);
+  };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+  const handleAboutMeChange = (e) => {
+    setAboutMe(e.target.value);
+  };
+  const handleExpertiseChange = (e) => {
+    setExpertise(e.target.value);
+  };
+  const handleYearsOfExperienceChange = (e) => {
+    setYearsOfExperience(e.target.value);
+  };
+  const handleIncomeChange = (e) => {
+    setIncome(e.target.value);
+  };
+
   return (
     <div className="overflow-hidden ">
       <div className="mx-auto max-w-7xl px-6 pt-20 lg:px-8 lg:pt-24">
         <div className=" mx-auto max-w-2xl gap-x-14 lg:mx-0  lg:max-w-none lg:items-center">
-          <div className="px-4 py-6 sm:px-6 mx-16">
+          <div className=" px-4 py-6 sm:px-6 mx-2">
             <figcaption className="mt-6 flex items-center gap-x-4">
               <img
                 className="h-20 w-20 rounded-full bg-gray-50"
                 src={profile.user.profilePicture}
                 alt=""
               />
-              <div>
-                <div className="mt-4 flex ">
-                  <div>
-                    <h2 className=" text-3xl lg:text-4xl font-semibold leading-7 text-gray-900">
-                      {profile.user.name} {profile.user.lastname}
-                    </h2>
+              <div className="mt-4 ">
+                <div className="gap-2 flex">
+                  <div className="">
+                    {!editMode ? (
+                      <h2 className="text-3xl lg:text-4xl font-semibold leading-7 text-gray-900">
+                        {profile.user.name} {profile.user.lastname}
+                      </h2>
+                    ) : (
+                      <input
+                        type="text"
+                        className="mt-1 text-3xl leading-6 text-gray-900 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
+                        value={profile.user.name}
+                        onChange={handleNameChange}
+                      />
+                    )}
                   </div>
                   <div className="">
-                    <button
-                      type="submit"
-                      className="rounded-md ring-1 ring-indigo-600 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Editar Perfil
-                    </button>
+                    {!editMode ? (
+                      <button
+                        type="submit"
+                        className="rounded-md ring-1 ring-indigo-600 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={handleEditProfile}
+                      >
+                        Editar Perfil
+                      </button>
+                    ) : (
+                      <div className="flex items-center gap-x-2">
+                        <input
+                          type="text"
+                          className="mt-1 text-3xl leading-6 text-gray-900 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
+                          value={profile.user.lastname}
+                          onChange={handleLastnameChange}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>{" "}
                 <dt className="sr-only">Category</dt>
@@ -129,18 +183,36 @@ export default function profilePage() {
                   <dt className="text-sm font-medium text-gray-900">
                     Teléfono
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {profile.user.phone}
-                  </dd>
+                  {!editMode ? (
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {profile.user.phone}
+                    </dd>
+                  ) : (
+                    <input
+                      type="text"
+                      className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
+                      value={profile.user.phone}
+                      onChange={handlePhoneChange}
+                    />
+                  )}
                 </div>
 
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-900">
                     Correo electrónico
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {profile.user.email}
-                  </dd>
+                  {!editMode ? (
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {profile.user.email}
+                    </dd>
+                  ) : (
+                    <input
+                      type="text"
+                      className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
+                      value={profile.user.email}
+                      onChange={handleEmailChange}
+                    />
+                  )}
                 </div>
               </dl>
             </div>
@@ -152,9 +224,18 @@ export default function profilePage() {
                   <dt className="text-sm font-medium text-gray-900">
                     Acerca de mi
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {profile.aboutMe}
-                  </dd>
+                  {!editMode ? (
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {profile.aboutMe}
+                    </dd>
+                  ) : (
+                    <input
+                      type="text"
+                      className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
+                      value={profile.aboutMe}
+                      onChange={handleAboutMeChange}
+                    />
+                  )}
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-900">
@@ -168,25 +249,52 @@ export default function profilePage() {
                   <dt className="text-sm font-medium text-gray-900">
                     Soy experto en
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {profile.expertise}{" "}
-                  </dd>
+                  {!editMode ? (
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {profile.expertise}{" "}
+                    </dd>
+                  ) : (
+                    <input
+                      type="text"
+                      className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
+                      value={profile.expertise}
+                      onChange={handleExpertiseChange}
+                    />
+                  )}
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-900">
                     Años de experiencia
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {profile.yearsOfExperience}
-                  </dd>
+                  {!editMode ? (
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {profile.yearsOfExperience}
+                    </dd>
+                  ) : (
+                    <input
+                      type="text"
+                      className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
+                      value={profile.yearsOfExperience}
+                      onChange={handleYearsOfExperienceChange}
+                    />
+                  )}
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-900">
                     Precio por servicio
                   </dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {profile.income}
-                  </dd>
+                  {!editMode ? (
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {profile.income}
+                    </dd>
+                  ) : (
+                    <input
+                      type="text"
+                      className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 bg-transparent border rounded px-2 py-1 border-indigo-300 focus:outline-none"
+                      value={profile.income}
+                      onChange={handleIncomeChange}
+                    />
+                  )}
                 </div>
 
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
