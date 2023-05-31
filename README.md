@@ -7,8 +7,10 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Team](#team)
+- [Credits](#credits)
 - [Links](#links)
+- [License](#license)
+- [Badges](#badges)
 
 ## Description
 Profinder application was created with the aim of helping people find someone who can solve their problems. To access the private data of our staff and use the application, it is necessary to log in. 
@@ -17,7 +19,7 @@ Profinder application was created with the aim of helping people find someone wh
 The motivation behind this project was to provide a platform where people can find help quickly and efficiently. Often, we are faced with problems for which we don't have the solution and the idea of having a place where we can search for experts in different fields and contact them directly seemed very useful.
 
 - Problem it solves ⚙️
-People Finder solves the problem of finding someone suitable to solve a specific problem. It can be difficult and time consuming to search for the right person with the expertise needed to solve a particular problem. This application simplifies that process by providing a directory of people with varied skills and knowledge who are willing to help.
+Profinder solves the problem of finding someone suitable to solve a specific problem. It can be difficult and time consuming to search for the right person with the expertise needed to solve a particular problem. This application simplifies that process by providing a directory of people with varied skills and knowledge who are willing to help.
 
 - What we have learned 💡
 In developing this project, we have learned about designing user interfaces, implementing secure login systems, and managing private data. We have also gained experience in database management and creating efficient search algorithms.
@@ -73,7 +75,7 @@ or...
 ## Links
 - [Deployed Profinder]()
 - [Repository Profinder](https://github.com/AndyAnza/profinder)
-## Team
+## Credits
 
 - Andrea Anza     
 GitHub: https://github.com/AndyAnza
@@ -87,3 +89,15 @@ GitHub: https://github.com/SolanoD94
 - Fabrizio Treviño  
 GitHub: https://github.com/Fabri-Tech
 
+## License
+[![License](https://badgen.net/open-vsx/license/idleberg/electron-builder)](https://open-vsx.org/extension/idleberg/electron-builder)
+
+
+## Badges
+[![NPM](https://badgen.net/badge/icon/npm?icon=npm&label)](https://www.npmjs.com/)
+[![Slack](https://badgen.net/badge/icon/slack?icon=slack&label)](https://slack.com/)
+[![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/)
+[![GraphQL](https://badgen.net/badge/icon/graphql?icon=graphql&label)](https://graphql.org/)
+[![Visual Studio](https://badgen.net/badge/icon/visualstudio?icon=visualstudio&label)](https://visualstudio.microsoft.com/)
+[![Terminal](https://badgen.net/badge/icon/terminal?icon=terminal&label)](https://en.wikipedia.org/wiki/Terminal_emulator)
+[![License](https://badgen.net/open-vsx/license/idleberg/electron-builder)](https://open-vsx.org/extension/idleberg/electron-builder)
