@@ -43,7 +43,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="isolate px-6 py-24 sm:py-28 lg:px-8">
+    <div className="isolate px-6 py-24 sm:py-28 lg:px-8 ">
       <div
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
@@ -59,8 +59,8 @@ const Signup = () => {
       <div className="mx-auto mt-8 max-w-xl sm:mt-6 bg-white border border-gray-300 rounded-lg px-8 py-6">
         {data ? (
           <div className="">
-            <p className="">¡Éxito! Has creado tu cuenta de usuario</p>
-            <div className="grid grid-cols-2">
+            <p className="text-center">¡Éxito! Has creado tu cuenta de usuario</p>
+            <div className="grid grid-cols-2 mt-6 text-center">
               <div>
                 <Link
                   to="/results"
@@ -74,7 +74,7 @@ const Signup = () => {
                   to="/create-professional"
                   className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
                 >
-                  Crea tu cuenta profesional
+                  Convertirme en profesional
                 </Link>
               </div>
             </div>
@@ -184,6 +184,7 @@ const Signup = () => {
                     type="tel"
                     name="phone"
                     id="phone-number"
+                    maxLength={10}
                     autoComplete="tel"
                     className="block w-full rounded-md border-0 px-3.5 py-2 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     value={formState.phone}
