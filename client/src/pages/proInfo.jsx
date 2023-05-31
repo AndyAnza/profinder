@@ -24,7 +24,7 @@ const reviews = [
 export default function ProfilePage() {
   const { userId } = useParams();
   const navigate = useNavigate();
-  const [updateProfessional] = useMutation(UPDATE_PROFFESSIONAL);
+  const [updateProfessional] = useMutation(UPDATE_PROFESSIONAL);
   const [removeUser] = useMutation(REMOVE_USER);
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
@@ -79,6 +79,29 @@ export default function ProfilePage() {
     }
   };
 
+  const handleSaveProfile = async () => {
+    try {
+      window.location.href = "/";
+      // const { data } = await updateProfessional({
+      //   variables: {
+      //     user: userId,
+      //     name: name, // Update name variable
+      //     lastname: lastname, // Update lastname variable
+      //     phone: phone, // Update phone variable
+      //     email: email, // Update email variable
+      //     aboutMe: aboutMe,
+      //     expertise: expertise,
+      //     yearsOfExperience: yearsOfExperience,
+      //     income: income,
+      //   },
+      // });
+      // console.log(`save`, data);
+      // setEditMode(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleEditProfile = () => {
     setEditMode(true);
   };
@@ -119,8 +142,8 @@ export default function ProfilePage() {
                 alt=""
               />
               <div className="mt-4 ">
-                <div className="gap-2 flex">
-                  <div className="">
+                <div className="gap-3 w-full grid grid-cols-3">
+                  <div className="flex">
                     {!editMode ? (
                       <h2 className="text-3xl lg:text-4xl font-semibold leading-7 text-gray-900">
                         {profile.user.name} {profile.user.lastname}
@@ -135,7 +158,8 @@ export default function ProfilePage() {
                       />
                     )}
                   </div>
-                  <div className="">
+                  <div></div>
+                  <div className=" ml-12 lg:ml-48 justify-end">
                     {!editMode ? (
                       <button
                         type="submit"
@@ -332,29 +356,6 @@ export default function ProfilePage() {
                           </div>
                         </div>
                       </li>
-                      <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                        <div className="flex w-0 flex-1 items-center">
-                          <PaperClipIcon
-                            className="h-5 w-5 flex-shrink-0 text-gray-400"
-                            aria-hidden="true"
-                          />
-                          <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                            <span className="truncate font-medium">
-                              <a
-                                href="https://example.com/cartadepresentacion_desarrollador_backend"
-                                className="text-indigo-600 hover:text-indigo-500"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                Link Personal
-                              </a>
-                            </span>
-                            <span className="flex-shrink-0 text-gray-400">
-                              4.5mb
-                            </span>
-                          </div>
-                        </div>
-                      </li>
                     </ul>
                   </dd>
                 </div>
@@ -363,17 +364,17 @@ export default function ProfilePage() {
             {/* Seccion Reseñas */}
             <div className="bg-white">
               <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                <h2 className="text-lg font-medium text-gray-900">
+                {/* <h2 className="text-lg font-medium text-gray-900">
                   Reseñas de mis clientes
-                </h2>
-                <div className="mt-6 space-y-10 divide-y divide-gray-200 border-b border-t border-gray-200 pb-10">
+                </h2> */}
+                {/* <div className="mt-6 space-y-10 divide-y divide-gray-200 border-b border-t border-gray-200 pb-10">
                   {profile.reviews.map((review) => (
                     <div
                       key={review._id}
                       className="pt-10 lg:grid lg:grid-cols-12 lg:gap-x-8"
                     >
                       <div className="lg:col-span-8 lg:col-start-5 xl:col-span-9 xl:col-start-4 xl:grid xl:grid-cols-3 xl:items-start xl:gap-x-8">
-                        <div className="flex items-center xl:col-span-1">
+                        <div className="flex items-center xl:col-span-1"> */}
                           {/* <div className="flex items-center">
                             {[0, 1, 2, 3, 4].map((rating) => (
                               <StarIcon
@@ -388,7 +389,7 @@ export default function ProfilePage() {
                               />
                             ))}
                           </div> */}
-                          <p className="ml-3 text-sm text-gray-700">
+                          {/* <p className="ml-3 text-sm text-gray-700">
                             {review.rating}
                             <span className="sr-only"> out of 5 stars</span>
                           </p>
@@ -397,16 +398,16 @@ export default function ProfilePage() {
                         <div className="mt-4 lg:mt-6 xl:col-span-2 xl:mt-0">
                           <h3 className="text-sm font-medium text-gray-900">
                             {review.comment}
-                          </h3>
+                          </h3> */}
 
                           {/* <div
                             className="mt-3 space-y-6 text-sm text-gray-500"
                             dangerouslySetInnerHTML={{ __html: review.content }}
                           /> */}
-                        </div>
-                      </div>
+                        {/* </div>
+                      </div> */}
 
-                      <div className="mt-6 flex items-center text-sm lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:mt-0 lg:flex-col lg:items-start xl:col-span-3">
+                      {/* <div className="mt-6 flex items-center text-sm lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:mt-0 lg:flex-col lg:items-start xl:col-span-3">
                         <p className="font-medium text-gray-900">
                           {review.user.name}
                         </p>
@@ -416,13 +417,24 @@ export default function ProfilePage() {
                         >
                           {review.createdAt}
                         </time>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                      </div> */}
+                    {/* </div>
+                  ))} */}
+                {/* </div> */}
               </div>
             </div>
             <div className="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
+              {editMode && (
+                <div className="px- py-6  sm:gap-4 sm:px-6">
+                  <button
+                    type="button"
+                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    onClick={handleSaveProfile}
+                  >
+                    Guardar cambios
+                  </button>
+                </div>
+              )}
               <button
                 type="submit"
                 className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
