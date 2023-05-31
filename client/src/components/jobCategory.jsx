@@ -38,6 +38,8 @@ const category = [
   },
   {
     name: "Jardinería",
+
+
     imageUrl:
       "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
   },
@@ -68,16 +70,19 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function jobCategory() {
+export default function JobCategory() {
   return (
-    <div className="bg-white pt-16 sm:pt-28">
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 className="mt-15 mb-20 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">
+          Explora nuestra amplia variedad de categorías de servicios profesionales
+        </h2>
         <ul
           role="list"
           className="mx-auto mt-2 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
         >
           {category.map((category) => (
-            <li key={category.username}>
+            <li key={category.name}>
               <img
                 className="mx-auto h-24 w-24 rounded-full"
                 src={category.imageUrl}
@@ -86,9 +91,7 @@ export default function jobCategory() {
               <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">
                 {category.name}
               </h3>
-              <p className="text-sm leading-6 text-gray-600">
-                {category.username}
-              </p>
+              {/* Otros elementos de cada categoría */}
             </li>
           ))}
         </ul>

@@ -160,12 +160,12 @@ const Login = (props) => {
               </div>
               <div className="relative flex justify-center text-sm font-medium leading-6">
                 <span className="bg-white px-6 text-gray-900">
-                  O continúa con
+                 
                 </span>
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-4">
+            {/* <div className="mt-6 grid grid-cols-2 gap-4">
               <a
                 href="#"
                 className="flex w-full items-center justify-center gap-3 rounded-md bg-[#1D9BF0] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
@@ -199,7 +199,7 @@ const Login = (props) => {
                 </svg>
                 <span className="text-sm font-semibold leading-6">GitHub</span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
