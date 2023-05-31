@@ -1,10 +1,14 @@
-# Profinder 👤
+![Reference image.](./assets/logo.png)
+# Profinder 
 
 ## Table of Contents
 - [Description](#description)
+- [Technologies](#technologies)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
+- [Team](#team)
+- [Links](#links)
 
 ## Description
 Profinder application was created with the aim of helping people find someone who can solve their problems. To access the private data of our staff and use the application, it is necessary to log in. 
@@ -17,6 +21,15 @@ People Finder solves the problem of finding someone suitable to solve a specific
 
 - What we have learned 💡
 In developing this project, we have learned about designing user interfaces, implementing secure login systems, and managing private data. We have also gained experience in database management and creating efficient search algorithms.
+
+
+## Technologies
+* React
+* Node.js
+* Expresss.js
+* Mongoose
+* Apollo server graphql
+* Tailwind
 
 ## Installation
 Follow these steps to install and run the project in your development environment:
@@ -57,4 +70,20 @@ or...
 - Contact information to communicate with the people found.
 - Secure login system to access private personnel data.
 
+## Links
+- [Deployed Profinder]()
+- [Repository Profinder](https://github.com/AndyAnza/profinder)
+## Team
+
+- Andrea Anza     
+GitHub: https://github.com/AndyAnza
+
+- Jeacqueline Ríos  
+GitHub: https://github.com/Jeacqueline 
+
+- Diana Solano      
+GitHub: https://github.com/SolanoD94
+
+- Fabrizio Treviño  
+GitHub: https://github.com/Fabri-Tech
 
