@@ -134,7 +134,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <a
+            {/* <a
               href={tier.href}
               aria-describedby={tier.id}
               className={classNames(
@@ -145,7 +145,7 @@ export default function Pricing() {
               )}
             >
               Comienza hoy
-            </a>
+            </a> */}
           </div>
         ))}
       </div>

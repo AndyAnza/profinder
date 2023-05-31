@@ -1,16 +1,16 @@
 const navigation = {
     main: [
-      { name: 'Acerca', href: './errorPage.jsx' },
-      { name: 'Blog', href: './errorPage.jsx' },
-      { name: 'Empleos', href: './errorPage.jsx' },
-      { name: 'Prensa', href: './errorPage.jsx' },
-      { name: 'Accesibilidad', href: './errorPage.jsx' },
-      { name: 'Socios', href: './errorPage.jsx' },
+      { name: 'Acerca', href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg' },
+      { name: 'Blog', href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg' },
+      { name: 'Empleos', href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg' },
+      { name: 'Prensa', href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg' },
+      { name: 'Accesibilidad', href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg' },
+      { name: 'Socios', href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg' },
     ],
     social: [
       {
         name: 'Facebook',
-        href: './errorPage.jsx',
+        href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg',
         icon: (props) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path
@@ -23,7 +23,7 @@ const navigation = {
       },
       {
         name: 'Instagram',
-        href: './errorPage.jsx',
+        href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg',
         icon: (props) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path
@@ -38,7 +38,7 @@ const navigation = {
       },
       {
         name: 'Twitter',
-        href: './errorPage.jsx',
+        href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg',
         icon: (props) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.
@@ -49,7 +49,7 @@ const navigation = {
       },
       {
         name: 'GitHub',
-        href: './errorPage.jsx',
+        href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg',
         icon: (props) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path
@@ -62,7 +62,7 @@ const navigation = {
       },
       {
         name: 'YouTube',
-        href: './errorPage.jsx',
+        href: 'https://images.squarespace-cdn.com/content/v1/55ca787ae4b07d9498906d9e/1551490529737-C7C2LZQ8MSFLT8L632H4/coming-soon-neon-sign-coming-soon-badge-in-vector-21133321.jpg',
         icon: (props) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path

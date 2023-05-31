@@ -4,9 +4,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Auth from "../utils/auth";
 
 const navigation = [
-  { name: "¿Quiénes somos?", href: "us" },
+  { name: "¿Quiénes somos?", href: "/us" },
   { name: "Servicio al cliente", href: "https://wa.me/8119084023" },
-  { name: "Preguntas Frecuentes", href: "faq" },
+  { name: "Preguntas Frecuentes", href: "/faq" },
   // { name: "Mi Perfil", href: "/perfil" },
   <br>
     <br></br>
@@ -79,7 +79,9 @@ export default function Header() {
         <div className="hidden lg:flex lg:justify-start space-x-4">
           {Auth.loggedIn() ? (
             <>
-              <span>Bienvenido! {Auth.getProfile().data.email}</span>
+              <span className="text-cyan-500 font-bold">
+               {Auth.getProfile().data.email}
+              </span>
               <a
                 href={`/profile/${Auth.getProfile().data._id}`}
                 className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
