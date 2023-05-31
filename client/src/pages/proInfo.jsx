@@ -71,7 +71,7 @@ export default function ProfilePage() {
         Auth.logout();
 
         // Redirect to the home page
-        navigate("/");
+        window.location.href = "/";
       }
     } catch (err) {
       console.error(err);

@@ -40,8 +40,8 @@ const AddProfessional = () => {
       const { data } = await addProfessional({
         variables: { ...formState },
       });
-
-      Auth.login(data.addProfessional.token);
+      window.location.href = "/";
+      // Auth.login(data.addProfessional.token);
     } catch (e) {
       console.error(e);
     }
@@ -88,6 +88,7 @@ const AddProfessional = () => {
                         autoComplete="category"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                       >
+                        <option>Elige una categoria</option>
                         <option value="Enfermería">Enfermería</option>
                         <option value="Carpintería">Carpintería</option>
                         <option value="Electricista">Electricista</option>
