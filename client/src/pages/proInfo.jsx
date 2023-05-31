@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_PROFILE, QUERY_ME } from "../utils/queries";
-import { REMOVE_USER } from "../utils/mutations";
+import { REMOVE_USER, UPDATE_PROFESSIONAL } from "../utils/mutations";
 import Auth from "../utils/auth";
 const reviews = [
   {
@@ -24,6 +24,7 @@ const reviews = [
 export default function ProfilePage() {
   const { userId } = useParams();
   const navigate = useNavigate();
+  const [updateProfessional] = useMutation(UPDATE_PROFFESSIONAL);
   const [removeUser] = useMutation(REMOVE_USER);
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
