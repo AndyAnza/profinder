@@ -87,18 +87,48 @@ const resolvers = {
       }
     },
     // si sirve
-    updateProfessional: async (parent, args, context) => {
-      const { _id, ...updateFields } = args;
-      if (context.user) {
-        const professional = await Professional.findOneAndUpdate(
-          { user: context.user._id },
-          updateFields,
+    updateProfessional: async (_, args) => {
+      const {
+        user,
+        name,
+        lastname,
+        phone,
+        email,
+        aboutMe,
+        yearsOfExperience,
+        expertise,
+        income,
+      } = args;
+
+      try {
+        // Update the Professional fields
+        const updatedProfessional = await Professional.findByIdAndUpdate(
+          user,
+          { aboutMe, yearsOfExperience, expertise, income },
           { new: true }
         );
-        console.log(professional);
-        return professional;
+
+        if (!updatedProfessional) {
+          throw new Error("Professional not found");
+        }
+
+        // Update the associated User fields
+        const updatedUser = await User.findByIdAndUpdate(
+          user,
+          { name, lastname, phone, email },
+          { new: true }
+        );
+
+        if (!updatedUser) {
+          throw new Error("User not found");
+        }
+
+        // Return the updated Professional
+        return updatedProfessional;
+      } catch (error) {
+        console.error(error);
+        throw new Error("Failed to update professional");
       }
-      throw new AuthenticationError("You need to be logged in!");
     },
 
     //si sirve

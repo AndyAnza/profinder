@@ -106,24 +106,31 @@ export const REMOVE_USER = gql`
 
 export const UPDATE_PROFESSIONAL = gql`
   mutation updateProfessional(
-    $id: ID!
+    $user: ID!
+    $name: String
+    $lastname: String
+    $phone: String
+    $email: String
     $aboutMe: String
-    $yearsOfExperience: Int
-    $category: String
     $expertise: String
+    $yearsOfExperience: Int
     $income: String
-    $url: String
   ) {
     updateProfessional(
-      _id: $id
+      name: $name
+      lastname: $lastname
+      phone: $phone
+      email: $email
       aboutMe: $aboutMe
-      yearsOfExperience: $yearsOfExperience
-      category: $category
       expertise: $expertise
+      yearsOfExperience: $yearsOfExperience
+      user: $user
       income: $income
-      url: $url
     ) {
-      _id
+      aboutMe
+      yearsOfExperience
+      expertise
+      income
     }
   }
 `;
