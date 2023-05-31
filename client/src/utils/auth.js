@@ -33,6 +33,11 @@ class AuthService {
     window.location.assign("/");
   }
 
+  signIn(idToken) {
+    // Same as login but it wont redirect you to "/"
+    localStorage.setItem("id_token", idToken);
+  }
+
   logout() {
     // Clear user token and profile data from localStorage
     localStorage.removeItem("id_token");

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Auth from "../utils/auth";
@@ -7,10 +7,15 @@ const navigation = [
   { name: "¿Quiénes somos?", href: "us" },
   { name: "Servicio al cliente", href: "https://wa.me/8119084023" },
   { name: "Preguntas Frecuentes", href: "faq" },
-  { name: "Mi Perfil", href: "/perfil" },
+  // { name: "Mi Perfil", href: "/perfil" },
   <br>
     <br></br>
   </br>,
+];
+
+const accountOptions = [
+  { label: "Registrarse como usuario", value: "/sign-in" },
+  { label: "Registrarse como profesional", value: "/create-professional" },
 ];
 
 export default function Header() {
@@ -18,8 +23,21 @@ export default function Header() {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    window.location.href = "/";
   };
   const [loginOpen, setLoginOpen] = useState(false);
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleDropdownToggle = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleOptionSelect = (option) => {
+    setDropdownOpen(false);
+    window.location.href = option.value;
+  };
+
   return (
     <header className="absolute inset-x-0 top-0 z-50 ">
       <nav
@@ -77,17 +95,32 @@ export default function Header() {
             </>
           ) : (
             <>
+              <div className="relative">
+                <button
+                  onClick={handleDropdownToggle}
+                  className="rounded-md bg-white-600 px-2 py-1.5 text-xs font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Registrarse
+                </button>
+                {dropdownOpen && (
+                  <div className="absolute mt-2 bg-white rounded-md shadow-lg z-10">
+                    {accountOptions.map((option) => (
+                      <button
+                        key={option.label}
+                        className="block w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100"
+                        onClick={() => handleOptionSelect(option)}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
               <a
                 href="/login"
                 className="rounded-md bg-indigo-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Iniciar sesión
-              </a>
-              <a
-                href="/sign-in"
-                className="rounded-md bg-white-600 px-2 py-1.5 text-xs font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Registrarse
               </a>
             </>
           )}
@@ -159,6 +192,12 @@ export default function Header() {
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       Registrarse
+                    </a>
+                    <a
+                      href="/create-professional"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Registrarse como profesional
                     </a>
                   </>
                 )}
