@@ -46,7 +46,7 @@ Follow these steps to install and run the project in your development environmen
 ## Usage
 Once you have installed and run the application, follow these steps to use it:
 
-- Open the deployed link and that´s all: http://.........
+- Open the deployed link and that´s all: https://profinder-dev.herokuapp.com/
 - Prove our application.
 - Create your new account  
 - You can search, become a professional, update your information.
@@ -73,7 +73,7 @@ or...
 - Secure login system to access private personnel data.
 
 ## Links
-- [Deployed Profinder]()
+- [Deployed Profinder](https://profinder-dev.herokuapp.com/)
 - [Repository Profinder](https://github.com/AndyAnza/profinder)
 ## Credits
 
