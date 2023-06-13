@@ -5,7 +5,7 @@ const people = [
     name: "Fabrizio Treviño",
     role: "Frontend Developer",
     imageUrl:
-      "https://scontent.fpbc6-1.fna.fbcdn.net/v/t39.30808-6/270168850_10159922340762451_6232405949001174312_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=OQxeLzsWDS4AX-1Zl2g&_nc_oc=AQn_86szSPXIF2Id50vwFlTD0TM5DIVcpuhlpIZ1aW1YkaQvSCI_xRNefef3XFhBlw-knR_FZsyeLGlqHF_XKQTm&_nc_ht=scontent.fpbc6-1.fna&oh=00_AfDG_sAWN79LjfhCMwNN8Fut4CoJP4icgxCJbdPq3DP_3g&oe=647BEFFA",
+      "https://scontent.fpbc6-1.fna.fbcdn.net/v/t39.30808-6/270168850_10159922340762451_6232405949001174312_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=kSOJCi0jasQAX9B2eIX&_nc_oc=AQlc6C8vXLTaLwRanYebSlYHYjM35h9k9y8r0OzDWj_S0U7MiDWijrX0a6ixTFhUBI1BvLKnIF3hZolAVIWklmws&_nc_ht=scontent.fpbc6-1.fna&oh=00_AfBYcTTmd7CMhZXZ_bqaHnEwSTnYgEnt6ASgBO79DPEikw&oe=648DBC3A",
     bio: "Praesentium iure error aliquam voluptas ut libero. Commodi placeat sit iure nulla officiis. Ut ex sit repellat tempora. Qui est accusamus exercitationem natus ut voluptas. Officiis velit eos ducimus.",
     twitterUrl: "#",
     linkedinUrl: "#",

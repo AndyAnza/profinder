@@ -76,69 +76,85 @@ export default function ProSearch({ professionals }) {
                   </Transition.Child>
 
                   <div className="fixed inset-0 overflow-y-auto">
-                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
                       <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
-                        enterFrom="opacity-0 scale-95"
-                        enterTo="opacity-100 scale-100"
+                        enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        enterTo="opacity-100 translate-y-0 sm:scale-100"
                         leave="ease-in duration-200"
-                        leaveFrom="opacity-100 scale-100"
-                        leaveTo="opacity-0 scale-95"
+                        leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                        leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                       >
-                        <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 align-middle shadow-xl transition-all">
+                        <Dialog.Panel className=" max-w-md transform overflow-hidden rounded-2xl bg-white p-6 align-middle shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                          <img
+                            className="mx-auto h-28 w-28 flex-shrink-0 rounded-full mb-4"
+                            src={person.user.profilePicture}
+                            alt="profile picture"
+                          />
                           <Dialog.Title
                             as="h3"
-                            className="text-lg font-medium leading-6 text-gray-900 align-center"
+                            className="text-lg font-medium leading-6 text-gray-900 align-center px-4 pt-2 sm:px-0"
                           >
-                            <img
-                              className="mx-auto h-28 w-28 flex-shrink-0 rounded-full mb-4"
-                              src={person.user.profilePicture}
-                              alt="profile picture"
-                            />
                             {person.user.name} {person.user.lastname}
+                            <span className="justify-center items-center rounded-full bg-green-50 ml-4 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                              {person.category}
+                            </span>
                           </Dialog.Title>
-                          <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                            {person.category}
-                          </span>
 
-                          <div className="mt-2">
-                            <p className="text-sm text-gray-500">
-                              Ubicación: {person.user.location}
-                            </p>
+                          <div className="mt-1">
+                            <dl className="divide-y divide-gray-100">
+                              <div className="px-4 pt-4 grid grid-cols-2 sm:grid-cols-3 sm:gap-1 sm:px-0 text-start mx-8">
+                                <dt className="text-sm font-medium leading-6 text-gray-900">
+                                  Ubicación
+                                </dt>
+                                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                                  {person.user.location}
+                                </dd>
+                                <dt className="text-sm font-medium leading-6 text-gray-900">
+                                  Email
+                                </dt>
+                                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                                  {person.user.email}
+                                </dd>
+                                <dt className="text-sm font-medium leading-6 text-gray-900">
+                                  Celular
+                                </dt>
+                                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                                  {person.user.phone}
+                                </dd>
+                              </div>
+                            </dl>
+                            <dl className="mt-6 border-t border-gray-100">
+                              <div className="px-4 py-6 grid grid-cols-1 sm:grid-cols-2 sm:gap-1 sm:px-0 text-start mx-8">
+                                <dt className="text-sm font-medium leading-6 text-gray-900 ">
+                                  Sobre mí
+                                </dt>
+                                <dd className=" text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                                  {person.aboutMe}
+                                </dd>
+                                <dt className="text-sm font-medium leading-6 text-gray-900 mt-3">
+                                  Años de experiencia
+                                </dt>
+                                <dd className=" text-sm leading-6 text-gray-700 sm:col-span-1 sm:mt-3">
+                                  {person.yearsOfExperience}
+                                </dd>
+                                <dt className="text-sm font-medium leading-6 text-gray-900 mt-3">
+                                  Soy experto en
+                                </dt>
+                                <dd className=" text-sm leading-6 text-gray-700 sm:col-span-1 sm:mt-3">
+                                  {person.expertise}
+                                </dd>
+                                <dt className="text-sm font-medium leading-6 text-gray-900 mt-3">
+                                  Ingreso esperado
+                                </dt>
+                                <dd className=" text-sm leading-6 text-gray-700 sm:col-span-1 sm:mt-3">
+                                  {person.income}
+                                </dd>
+                              </div>
+                            </dl>
                           </div>
-                          <div className="mt-2">
-                            <p className="text-sm text-gray-500">
-                              Email: {person.user.email}
-                            </p>
-                          </div>
-                          <div className="mt-2">
-                            <p className="text-sm text-gray-500">
-                              Celular: {person.user.phone}
-                            </p>
-                          </div>
-                          <div className="mt-2">
-                            <p className="text-sm text-gray-500">
-                              Sobre mí: {person.aboutMe}
-                            </p>
-                          </div>
-                          <div className="mt-2">
-                            <p className="text-sm text-gray-500">
-                              Años de experiencia: {person.yearsOfExperience}
-                            </p>
-                          </div>
-                          <div className="mt-2">
-                            <p className="text-sm text-gray-500">
-                              Soy experto en: {person.expertise}
-                            </p>
-                          </div>
-                          <div className="mt-2">
-                            <p className="text-sm text-gray-500">
-                              Ingreso esperado: {person.income}
-                            </p>
-                          </div>
-
-                          <div className="mt-4">
+                          <div className="mt-4 space-x-6">
                             <a
                               href={person.url}
                               target="_blank"
