@@ -33,7 +33,7 @@ export default function ProfilePage() {
   });
 
   // Check if data is returning from the `QUERY_ME` query, then the `GET_PROFILE` query
-  const profile = data?.me || data?.profile || {};
+  const profile = data?.profile || data?.me || {};
   console.log(profile);
 
   // SET STATE of fields that can be updated by the user.
