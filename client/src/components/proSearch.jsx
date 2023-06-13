@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, Fragment, useState } from "react";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
+import { Dialog, Transition } from "@headlessui/react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -23,18 +24,25 @@ const responsive = {
 };
 
 export default function ProSearch({ professionals }) {
+  let [isOpen, setIsOpen] = useState(false);
   const carouselRef = useRef(null);
-
   const handleNextSlide = () => {
     carouselRef.current.next();
   };
-
   const handlePrevSlide = () => {
     carouselRef.current.previous();
   };
 
   if (!professionals || professionals.length === 0) {
     return <h3>No se encontraron profesionales para tu búsqueda.</h3>;
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
   }
 
   return (
@@ -46,13 +54,117 @@ export default function ProSearch({ professionals }) {
             className="carousel-item col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow border-2"
           >
             <div className="flex flex-1 flex-col p-8">
-              <a href={`/profile/${person._id}`}>
-                <img
-                  className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
-                  src={person.user.profilePicture}
-                  alt=""
-                />
-              </a>
+              <img
+                className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
+                src={person.user.profilePicture}
+                alt="profile picture"
+                onClick={openModal}
+              />
+              {/* Modal */}
+              <Transition appear show={isOpen} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModal}>
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <div className="fixed inset-0 bg-black bg-opacity-25" />
+                  </Transition.Child>
+
+                  <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95"
+                      >
+                        <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 align-middle shadow-xl transition-all">
+                          <Dialog.Title
+                            as="h3"
+                            className="text-lg font-medium leading-6 text-gray-900 align-center"
+                          >
+                            <img
+                              className="mx-auto h-28 w-28 flex-shrink-0 rounded-full mb-4"
+                              src={person.user.profilePicture}
+                              alt="profile picture"
+                            />
+                            {person.user.name} {person.user.lastname}
+                          </Dialog.Title>
+                          <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                            {person.category}
+                          </span>
+
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              Ubicación: {person.user.location}
+                            </p>
+                          </div>
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              Email: {person.user.email}
+                            </p>
+                          </div>
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              Celular: {person.user.phone}
+                            </p>
+                          </div>
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              Sobre mí: {person.aboutMe}
+                            </p>
+                          </div>
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              Años de experiencia: {person.yearsOfExperience}
+                            </p>
+                          </div>
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              Soy experto en: {person.expertise}
+                            </p>
+                          </div>
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              Ingreso esperado: {person.income}
+                            </p>
+                          </div>
+
+                          <div className="mt-4">
+                            <a
+                              href={person.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                            >
+                              Links de mi trabajo
+                            </a>
+                            <a
+                              href={`https://wa.me/${person.user.phone}`}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                            >
+                              Contáctame!
+                            </a>
+                          </div>
+                        </Dialog.Panel>
+                      </Transition.Child>
+                    </div>
+                  </div>
+                </Dialog>
+              </Transition>
+
+              {/* Modal ends */}
+
               <h3 className="mt-6 text-sm font-medium text-gray-900">
                 {person.user.name} {person.user.lastname}
               </h3>
