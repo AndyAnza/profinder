@@ -4,7 +4,8 @@ const people = [
   {
     name: "Fabrizio Treviño",
     role: "Frontend Developer",
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl:
+      "https://scontent.fpbc6-1.fna.fbcdn.net/v/t39.30808-6/270168850_10159922340762451_6232405949001174312_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=OQxeLzsWDS4AX-1Zl2g&_nc_oc=AQn_86szSPXIF2Id50vwFlTD0TM5DIVcpuhlpIZ1aW1YkaQvSCI_xRNefef3XFhBlw-knR_FZsyeLGlqHF_XKQTm&_nc_ht=scontent.fpbc6-1.fna&oh=00_AfDG_sAWN79LjfhCMwNN8Fut4CoJP4icgxCJbdPq3DP_3g&oe=647BEFFA",
     bio: "Praesentium iure error aliquam voluptas ut libero. Commodi placeat sit iure nulla officiis. Ut ex sit repellat tempora. Qui est accusamus exercitationem natus ut voluptas. Officiis velit eos ducimus.",
     twitterUrl: "#",
     linkedinUrl: "#",
@@ -12,7 +13,8 @@ const people = [
   {
     name: "Diana Solano",
     role: "Fullstack Backend Web Developer",
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl:
+      "https://avatars.githubusercontent.com/u/117420563?s=400&u=815365cd2a3504d89f46238dd4ef8cf5875dad9f&v=4",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur sem nec lectus tincidunt, id suscipit elit consequat.",
     twitterUrl: "#",
     linkedinUrl: "#",
@@ -20,7 +22,7 @@ const people = [
   {
     name: "Andrea Anza",
     role: "Fullstack Web Developer",
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl: "https://avatars.githubusercontent.com/u/117940590?v=4",
     bio: "Duis pharetra tortor vel orci pharetra condimentum. Aenean ut nisl nec neque condimentum gravida ut ut neque.",
     twitterUrl: "#",
     linkedinUrl: "#",
@@ -28,7 +30,7 @@ const people = [
   {
     name: "Jeacqueline Ríos",
     role: "Fullstack Web Developer",
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl: "https://avatars.githubusercontent.com/u/118133859?v=4",
     bio: "Vivamus dapibus augue ac cursus auctor. Aliquam sed lobortis justo. Etiam quis ex efficitur, tincidunt neque ut, commodo felis.",
     twitterUrl: "#",
     linkedinUrl: "#",

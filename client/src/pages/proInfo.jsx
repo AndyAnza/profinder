@@ -142,7 +142,7 @@ export default function ProfilePage() {
                 alt=""
               />
               <div className="mt-4 ">
-                <div className="gap-3 w-full grid grid-cols-3">
+                <div className="gap-3 w-full">
                   <div className="flex">
                     {!editMode ? (
                       <h2 className="text-3xl lg:text-4xl font-semibold leading-7 text-gray-900">
@@ -159,7 +159,7 @@ export default function ProfilePage() {
                     )}
                   </div>
                   <div></div>
-                  <div className=" ml-12 lg:ml-48 justify-end">
+                  <div className=" flex">
                     {!editMode ? (
                       <button
                         type="submit"

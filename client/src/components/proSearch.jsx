@@ -1,25 +1,25 @@
 import React, { useRef } from "react";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
-    items: 5
+    items: 5,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4
+    items: 4,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2
+    items: 2,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
+    items: 1,
+  },
 };
 
 export default function ProSearch({ professionals }) {
@@ -41,14 +41,17 @@ export default function ProSearch({ professionals }) {
     <div className="relative">
       <Carousel ref={carouselRef} responsive={responsive}>
         {professionals.map((person) => (
-          <div key={person._id} className="carousel-item col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow border-2">
+          <div
+            key={person._id}
+            className="carousel-item col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow border-2"
+          >
             <div className="flex flex-1 flex-col p-8">
               <a href={`/profile/${person._id}`}>
-              <img
-                className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
-                src={person.user.profilePicture}
-                alt=""
-              />
+                <img
+                  className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
+                  src={person.user.profilePicture}
+                  alt=""
+                />
               </a>
               <h3 className="mt-6 text-sm font-medium text-gray-900">
                 {person.user.name} {person.user.lastname}
