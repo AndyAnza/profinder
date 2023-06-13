@@ -26,8 +26,12 @@ import Profile from "./pages/profile.jsx";
 // import ErrorPage from "./components/footer.jsx";
 
 // Construct our main GraphQL API endpoint
+// const httpLink = createHttpLink({
+//   uri: "http://localhost:3001/graphql",
+// });
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "https://profinder-dev.herokuapp.com/graphql", // Replace with your deployed server URL
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
