@@ -51,7 +51,7 @@ export default function ProSearch({ professionals }) {
         {professionals.map((person) => (
           <div
             key={person._id}
-            className="carousel-item col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow border-2"
+            className="carousel-item row-span-2 col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow border-2"
           >
             <div className="flex flex-1 flex-col p-8">
               <img
@@ -234,7 +234,7 @@ export default function ProSearch({ professionals }) {
           </div>
         ))}
       </Carousel>
-      <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 flex justify-between px-4">
+      <div className="absolute top-1/2 -left-8 -right-8 transform -translate-y-1/2 flex justify-between px-4">
         <button
           className="bg-gray-200 rounded-md p-2"
           onClick={handlePrevSlide}
