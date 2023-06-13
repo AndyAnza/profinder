@@ -5,11 +5,14 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd server && npm run start",
+    "start": "node server & cd client && npm run dev",
+    "server": "node server --ignore client",
+    "client": "cd client && npm run dev",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "postinstall": "cd server && npm install && cd ../client && npm install"
   },
   "repository": {
     "type": "git",
@@ -32,11 +35,21 @@
     "concurrently": "^8.0.1"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.0.1",
     "jwt-decode": "^3.1.2",
+    "mime": "^3.0.0",
+    "path": "^0.12.7",
     "react-elastic-carousel": "^0.11.5",
     "react-multi-carousel": "^2.8.4",
     "react-responsive-carousel": "^3.2.23",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "vite": "^4.3.9"
+  },
+  "engines": {
+    "node": "18.14.1",
+    "npm": "9.3.1"
   }
 }
