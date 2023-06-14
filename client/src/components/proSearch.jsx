@@ -54,9 +54,9 @@ export default function ProSearch({ professionals }) {
         {professionals.map((person) => (
           <div
             key={person._id}
-            className="carousel-item row-span-2 col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow border-2"
+            className="mr-4 carousel-item col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow border-2"
           >
-            <div className="flex flex-1 flex-col p-8">
+            <div className="flex flex-1 flex-col p-6 max-h-124">
               <img
                 className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
                 src={person.user.profilePicture}
@@ -185,7 +185,6 @@ export default function ProSearch({ professionals }) {
                   </div>
                 </Dialog>
               </Transition>
-
               {/* Modal ends */}
 
               <h3 className="mt-6 text-sm font-medium text-gray-900">
@@ -199,12 +198,12 @@ export default function ProSearch({ professionals }) {
                   </span>
                 </dd>
                 <dt className="sr-only">Expertise</dt>
-                <dd className="text-sm text-gray-500 mt-3">
+                <dd className="text-xs text-gray-500 h-28 overflow-y-scroll text-left my-4">
                   Experto en: {person.expertise}
-                </dd>
                 <dt className="sr-only">Income</dt>
                 <dd className="text-xs text-gray-900 mt-3">
                   Ingreso esperado: ${person.income}
+                </dd>
                 </dd>
               </dl>
             </div>
