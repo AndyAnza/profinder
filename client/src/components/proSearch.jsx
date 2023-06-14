@@ -37,16 +37,19 @@ export default function ProSearch({ professionals }) {
     return <h3>No se encontraron profesionales para tu búsqueda.</h3>;
   }
 
-  function closeModal() {
+  const [activePerson, setActivePerson] = useState(null);
+  const closeModal = () => {
+    setActivePerson(null);
     setIsOpen(false);
-  }
+  };
 
-  function openModal() {
+  const openModal = (person) => {
+    setActivePerson(person);
     setIsOpen(true);
-  }
+  };
 
   return (
-    <div className="relative">
+    <div className="relative" activePerson={activePerson}>
       <Carousel ref={carouselRef} responsive={responsive}>
         {professionals.map((person) => (
           <div
@@ -58,10 +61,14 @@ export default function ProSearch({ professionals }) {
                 className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
                 src={person.user.profilePicture}
                 alt="profile picture"
-                onClick={openModal}
+                onClick={() => openModal(person)}
               />
               {/* Modal */}
-              <Transition appear show={isOpen} as={Fragment}>
+              <Transition
+                appear
+                show={isOpen && person === activePerson}
+                as={Fragment}
+              >
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
                   <Transition.Child
                     as={Fragment}
