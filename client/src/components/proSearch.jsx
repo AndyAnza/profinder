@@ -33,20 +33,23 @@ export default function ProSearch({ professionals }) {
     carouselRef.current.previous();
   };
 
+  const [activePerson, setActivePerson] = useState(null);
+  const closeModal = () => {
+    setActivePerson(null);
+    setIsOpen(false);
+  };
+
+  const openModal = (person) => {
+    setActivePerson(person);
+    setIsOpen(true);
+  };
+
   if (!professionals || professionals.length === 0) {
     return <h3>No se encontraron profesionales para tu búsqueda.</h3>;
   }
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
   return (
-    <div className="relative">
+    <div className="relative" activePerson={activePerson}>
       <Carousel ref={carouselRef} responsive={responsive}>
         {professionals.map((person) => (
           <div
@@ -58,10 +61,14 @@ export default function ProSearch({ professionals }) {
                 className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
                 src={person.user.profilePicture}
                 alt="profile picture"
-                onClick={openModal}
+                onClick={() => openModal(person)}
               />
               {/* Modal */}
-              <Transition appear show={isOpen} as={Fragment}>
+              <Transition
+                appear
+                show={isOpen && person === activePerson}
+                as={Fragment}
+              >
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
                   <Transition.Child
                     as={Fragment}
@@ -193,10 +200,10 @@ export default function ProSearch({ professionals }) {
                 <dt className="sr-only">Expertise</dt>
                 <dd className="text-xs text-gray-500 h-28 overflow-y-scroll text-left my-4">
                   Experto en: {person.expertise}
-                <dt className="sr-only">Income</dt>
-                <dd className="text-xs text-gray-900 mt-3">
-                  Ingreso esperado: ${person.income}
-                </dd>
+                  <dt className="sr-only">Income</dt>
+                  <dd className="text-xs text-gray-900 mt-3">
+                    Ingreso esperado: ${person.income}
+                  </dd>
                 </dd>
               </dl>
             </div>
