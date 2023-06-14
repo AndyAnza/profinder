@@ -33,10 +33,6 @@ export default function ProSearch({ professionals }) {
     carouselRef.current.previous();
   };
 
-  if (!professionals || professionals.length === 0) {
-    return <h3>No se encontraron profesionales para tu búsqueda.</h3>;
-  }
-
   const [activePerson, setActivePerson] = useState(null);
   const closeModal = () => {
     setActivePerson(null);
@@ -47,6 +43,10 @@ export default function ProSearch({ professionals }) {
     setActivePerson(person);
     setIsOpen(true);
   };
+
+  if (!professionals || professionals.length === 0) {
+    return <h3>No se encontraron profesionales para tu búsqueda.</h3>;
+  }
 
   return (
     <div className="relative" activePerson={activePerson}>
@@ -200,10 +200,10 @@ export default function ProSearch({ professionals }) {
                 <dt className="sr-only">Expertise</dt>
                 <dd className="text-xs text-gray-500 h-28 overflow-y-scroll text-left my-4">
                   Experto en: {person.expertise}
-                <dt className="sr-only">Income</dt>
-                <dd className="text-xs text-gray-900 mt-3">
-                  Ingreso esperado: ${person.income}
-                </dd>
+                  <dt className="sr-only">Income</dt>
+                  <dd className="text-xs text-gray-900 mt-3">
+                    Ingreso esperado: ${person.income}
+                  </dd>
                 </dd>
               </dl>
             </div>
